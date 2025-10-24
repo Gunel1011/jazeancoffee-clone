@@ -1,0 +1,1 @@
+A frontend practice project — a clone of the Jazean Coffee website.
