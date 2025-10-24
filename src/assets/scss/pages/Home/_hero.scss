@@ -1,0 +1,38 @@
+@use "../../variables" as *;
+.hero {
+  background: linear-gradient($overlay), url(../../../img/bg.jpeg) center/cover;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  .container {
+    .row {
+      height: 100vh;
+      align-items: center;
+      .center {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .coffe {
+          color: $lightBeige;
+          width: 56px;
+          height: 75px;
+        }
+      }
+      .navigation {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        z-index: 2;
+        .navigationIcon {
+          width: 48px;
+          height: 48px;
+          margin: 12px;
+          cursor: pointer;
+       
+        }
+      }
+    }
+  }
+}

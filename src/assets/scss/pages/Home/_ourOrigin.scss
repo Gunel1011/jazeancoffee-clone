@@ -1,0 +1,21 @@
+@use "../../variables" as *;
+.ourOrigin {
+  margin-top: 565px;
+  .ourVideo {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    #vide {
+      width: 100%;
+    }
+  }
+  .origin {
+    position: absolute;
+    z-index: 3;
+    background-color: white;
+    .leaf {
+      color: $bordo;
+    }
+  }
+}

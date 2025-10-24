@@ -1,0 +1,8 @@
+@use "./base";
+
+// components
+@use "./components/header";
+
+// pages
+@use "../scss/pages/Home/hero";
+@use "../scss/pages/Home/ourOrigin";

@@ -1,0 +1,34 @@
+@use "../variables" as *;
+.header {
+  position: relative;
+  z-index: 9999;
+  .container {
+    .row {
+      align-items: center;
+      padding: 24px 0;
+      .logo {
+        width: 156px;
+        height: 50px;
+      }
+      .navBar {
+        width: 900px;
+        display: flex;
+        justify-content: center;
+        .navList {
+          display: flex;
+          gap: 32px;
+          .listItem {
+            a {
+              color: $dimWhite;
+              font-size: 12px;
+              font-weight: 400;
+              &:hover {
+                color: $lightBeige;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
