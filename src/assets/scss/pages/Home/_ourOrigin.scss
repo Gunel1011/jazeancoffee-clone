@@ -1,6 +1,7 @@
 @use "../../variables" as *;
 .ourOrigin {
   margin-top: 565px;
+  position: relative;
   .ourVideo {
     width: 100%;
     position: relative;
@@ -12,10 +13,40 @@
   }
   .origin {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 3;
-    background-color: white;
-    .leaf {
+    background-color: $whitedim;
+    border-radius: 45%;
+    height: 390px;
+    width: 284px;
+    .originContent {
+      height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: $bordo;
+      .originTitle {
+        width: 154px;
+        font-size: 21px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        text-align: center;
+      }
+      .originText {
+        font-size: 10.668px;
+        text-align: center;
+        font-weight: 400;
+      }
+      .leaf {
+        position: absolute;
+        bottom: 0;
+        color: $bordo;
+        width: 96px;
+        height: 96px;
+      }
     }
   }
 }

@@ -2,6 +2,10 @@
   font-family: loto;
   src: url(../fonts/loto.ttf);
 }
+@font-face {
+  font-family: montserrat;
+  src: url(../fonts/montserrat.ttf);
+}
 * {
   margin: 0;
   padding: 0;
@@ -24,4 +28,3 @@ img {
   height: 100%;
   object-fit: cover;
 }
-
