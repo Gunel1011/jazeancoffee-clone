@@ -1,0 +1,87 @@
+@use "../../variables" as *;
+.harvest {
+  position: relative;
+  background-color: $bordo;
+  height: 100vh;
+  margin-top: 40px;
+  .container {
+    .imgCerry {
+      img {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        width: 61px;
+        height: 51px;
+        filter: blur(5px);
+      }
+      &.top {
+        img {
+          top: 20%;
+          left: 30%;
+        }
+      }
+      &.bottom {
+        img {
+          top: 70%;
+          left: 20%;
+          filter: blur(0);
+          width: 98px;
+          height: 83px;
+        }
+      }
+    }
+    .row {
+      align-items: center;
+      height: 100vh;
+      justify-content: center;
+      .contentLefth {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .leaf {
+          color: $dimWhite;
+          margin-top: 12px;
+          width: 96px;
+          height: 96px;
+        }
+        .text {
+          width: 183px;
+          color: $dimWhite;
+          font-size: 21px;
+          text-align: center;
+        }
+      }
+      .contentRigth {
+        transform: translateY(-80px);
+        .text {
+          width: 240px;
+          font-size: 10.668px;
+          color: $dimWhite;
+          text-align: center;
+        }
+      }
+      .img {
+        mask-image: url(../../../img/file.svg);
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: 40%;
+        transform: scale(1.7);
+        #videHarvest {
+          width: 400px;
+          height: 400px;
+        }
+        .masked {
+          mask-image: url(../../../img/file.svg);
+          -webkit-mask-image: url(../../../img/file.svg);
+          mask-position: center;
+          -webkit-mask-position: center;
+          mask-repeat: no-repeat;
+          -webkit-mask-repeat: no-repeat;
+          mask-size: 40%;
+          -webkit-mask-size: 20%;
+        }
+      }
+    }
+  }
+}
