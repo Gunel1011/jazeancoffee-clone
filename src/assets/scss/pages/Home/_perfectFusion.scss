@@ -1,0 +1,53 @@
+@use "../../variables" as *;
+.perfectFusion {
+  position: relative;
+  .ourVideo {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    #vide {
+      width: 100%;
+    }
+  }
+  .origin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: $whitedim;
+    border-radius: 45%;
+    height: 390px;
+    width: 284px;
+    padding: 0 20px;
+    .originContent {
+      height: 390px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: $bordo;
+      .originTitle {
+        width: 154px;
+        font-size: 21px;
+        margin-bottom: 10px;
+        font-weight: 400;
+        text-align: center;
+      }
+      .originText {
+        font-size: 12.668px;
+        text-align: center;
+        font-weight: 300;
+        line-height: 1.3;
+      }
+      .leaf {
+        position: absolute;
+        bottom: 0;
+        color: $bordo;
+        width: 96px;
+        height: 96px;
+      }
+    }
+  }
+}
