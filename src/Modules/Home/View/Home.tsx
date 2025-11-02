@@ -1,6 +1,7 @@
-import CoffeeHarvest from "./sections/coffeeHarvest";
+import CoffeeHarvest from "./sections/CoffeeHarvest";
 import Hero from "./sections/Hero";
 import OurOrigin from "./sections/OurOrigin";
+import RefinedProcess from "./sections/RefinedProcess";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <OurOrigin />
       <CoffeeHarvest />
+      <RefinedProcess />
     </>
   );
 };

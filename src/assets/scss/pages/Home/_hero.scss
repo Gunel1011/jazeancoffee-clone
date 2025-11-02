@@ -32,6 +32,9 @@
           cursor: pointer;
           color: $brow;
         }
+        &:hover > :not(:hover) {
+          opacity: 0.5;
+        }
       }
     }
   }
