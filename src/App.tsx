@@ -1,10 +1,12 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./Modules/Home/View/Home";
 const App = () => {
-  return ( 
+  return (
     <>
       <Header />
       <Home />
+      <Footer />
     </>
   );
 };
