@@ -2,8 +2,7 @@
 .harvest {
   position: relative;
   background-color: $bordo;
-  height: 100vh;
-  margin-top: 40px;
+  z-index: 2;
   .container {
     .imgCerry {
       img {

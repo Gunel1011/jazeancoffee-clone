@@ -1,0 +1,29 @@
+@use "../../variables" as *;
+.coffeDetails {
+  background-color: $detailBg;
+  .container {
+    .row {
+      .coffeeContent {
+        .detailTitle {
+          color: $yellow;
+          font-size: 36px;
+          padding-top: 24px;
+          font-weight: 400;
+        }
+        .detailText {
+          color: $detailCoffee;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .coffeeImg {
+        width: 288px;
+        height: 345px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

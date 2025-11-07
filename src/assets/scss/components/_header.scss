@@ -34,7 +34,8 @@
         position: fixed;
         display: flex;
         flex-direction: column;
-        z-index: 999;
+        top: 20%;
+        z-index: 99999;
         .navigationIcon {
           width: 48px;
           height: 48px;

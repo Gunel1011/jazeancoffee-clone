@@ -1,0 +1,94 @@
+@use "../../variables" as *;
+.products {
+  height: 100vh;
+  background-color: $bg;
+  .container {
+    width: 100%;
+    .row {
+      flex-direction: column;
+      .productContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .productTitle {
+          font-size: 53px;
+          font-weight: 400;
+          color: $lightBeige;
+          width: 547px;
+          text-align: center;
+        }
+        .productText {
+          color: $textColor;
+          font-weight: 400;
+          font-size: 12px;
+          margin-top: 12px;
+          width: 276px;
+          text-align: center;
+        }
+      }
+      .product {
+        margin-top: 20px;
+        .swpierImg {
+          cursor: pointer;
+          img {
+            width: 200px;
+            height: 200px;
+          }
+        }
+        .mySwiper {
+          position: relative;
+          .swiper-slide {
+            display: flex;
+            justify-content: center;
+            margin-left: 3px;
+            transition: 0.9s ease;
+            opacity: 0.3;
+            filter: blur(3px);
+            transform: scale(1);
+            margin-right: 0px;
+          }
+          .swiper-slide-active {
+            opacity: 1;
+            transform: translateX(-30px);
+            filter: blur(0px);
+
+            .swpierImg {
+              img {
+                width: 260px;
+                height: 300px;
+              }
+            }
+          }
+          .swiper-button-prev,
+          .swiper-button-next {
+            width: 12px;
+            height: 10px;
+            color: $lightBeige;
+            &::after {
+              content: "";
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              border: 1px solid $lightBeige;
+              border-radius: 50%;
+            }
+
+            &:hover {
+              color: $orange;
+              transform: scale(0.8);
+              &::after {
+                border-color: $orange;
+              }
+            }
+          }
+          .swiper-button-prev {
+            left: 37%;
+          }
+          .swiper-button-next {
+            right: 36%;
+          }
+        }
+      }
+    }
+  }
+}
