@@ -1,3 +1,4 @@
+import Navgitaion from "../../../components/Navgitaion";
 import CoffeeHarvest from "./sections/CoffeeHarvest";
 import DiscoverYourPath from "./sections/DiscoverYourPath";
 import Hero from "./sections/Hero";
@@ -10,6 +11,7 @@ import RoastedBeans from "./sections/RoastedBeans";
 const Home = () => {
   return (
     <>
+      <Navgitaion />
       <Hero />
       <OurOrigin />
       <CoffeeHarvest />

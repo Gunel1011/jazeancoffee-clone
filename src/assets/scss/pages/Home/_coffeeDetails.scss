@@ -1,27 +1,178 @@
 @use "../../variables" as *;
 .coffeDetails {
+  position: relative;
   background-color: $detailBg;
   .container {
     .row {
-      .coffeeContent {
-        .detailTitle {
-          color: $yellow;
-          font-size: 36px;
-          padding-top: 24px;
-          font-weight: 400;
+      flex-direction: column;
+      .topSide {
+        margin-top: 128px;
+        padding: 0 32px 56px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .coffeeContent {
+          width: 50%;
+          .detailTitle {
+            color: $yellow;
+            font-size: 36px;
+            padding-top: 24px;
+            font-weight: 400;
+          }
+          .detailText {
+            color: $detailCoffee;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.7;
+          }
+          .addBasket {
+            .basketTitle {
+              color: $softBeige;
+              font-size: 14px;
+              opacity: 60%;
+              margin-top: 60px;
+            }
+            .size {
+              display: inline-block;
+              background-color: $softOrange;
+              padding: 10px 20px;
+              font-size: 12.8px;
+              margin-top: 12px;
+              border-radius: 60px;
+              cursor: pointer;
+            }
+            .price {
+              color: $softBeige;
+              font-size: 18px;
+              margin-top: 16px;
+            }
+            .buttons {
+              display: flex;
+              align-items: center;
+              gap: 16px;
+              margin-top: 16px;
+              .countBlcok {
+                color: $whitedim;
+                display: flex;
+                align-items: center;
+                background-color: $darkBrown;
+                button {
+                  color: $whitedim;
+                  padding: 8px;
+                  background-color: $darkBrown;
+                  border: none;
+                  font-size: 18px;
+                  cursor: pointer;
+                }
+                .count {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 48px;
+                  height: 44px;
+                  font-size: 20px;
+                }
+              }
+              .addToCart {
+                width: 172px;
+                height: 44px;
+                padding: 10px 8px;
+                background-color: $darkBrown;
+                color: $whitedim;
+                border: none;
+                font-size: 18px;
+                cursor: pointer;
+              }
+            }
+            .buy {
+              padding: 8px;
+              background-color: $orange;
+              width: 288px;
+              border: none;
+              cursor: pointer;
+              color: $whitedim;
+              font-size: 18px;
+              margin-top: 16px;
+            }
+          }
         }
-        .detailText {
-          color: $detailCoffee;
-          font-size: 14px;
-          font-weight: 400;
+        .coffeeImg {
+          width: 288px;
+          height: 345px;
+          position: sticky;
+          top: 100px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
-      .coffeeImg {
-        width: 288px;
-        height: 345px;
-        img {
-          width: 100%;
-          height: 100%;
+    }
+  }
+  .bottomSide {
+    background-color: $softIvory;
+    padding-top: 52px;
+    .container {
+      .titleBottom {
+        font-size: 24px;
+        font-weight: 100;
+      }
+      .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        padding-top: 80px;
+        &:hover {
+          background-color: $sliderHover;
+          .buttonAdd {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+          }
+        }
+        .swpierImg {
+          width: 215px;
+          height: 258px;
+        }
+        .name {
+          text-align: center;
+          font-size: 16px;
+        }
+        .text {
+          color: $brownSoft;
+          font-size: 12px;
+          text-align: center;
+          margin: 10px 0;
+        }
+        .buttonAdd {
+          opacity: 0;
+          visibility: hidden;
+          border: 1px solid $orange;
+          border-radius: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 6px;
+          gap: 5px;
+          margin-top: 10px;
+          transform: translateY(10px);
+          .plus {
+            width: 12px;
+            height: 12px;
+          }
+          span {
+            color: $orange;
+            font-size: 11px;
+          }
+          &:hover {
+            background-color: $orange;
+            span {
+              color: $detailBg;
+            }
+          }
         }
       }
     }

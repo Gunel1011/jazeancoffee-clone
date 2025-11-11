@@ -6,7 +6,6 @@ import { FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdPhoneAndroid } from "react-icons/md";
 
-
 const Footer = () => {
   return (
     <footer className="footer">
@@ -30,15 +29,32 @@ const Footer = () => {
               <h2 className="footerTitle">FOLLOW US</h2>
               {/* sosial media icons  */}
               <div className="sosialMediaIcons">
-                <div className="FooterSosialMediaIconBorder">
+                {/* instagram */}
+                <Link
+                  to={"https://www.instagram.com/jazeancoffee"}
+                  target="_blnak"
+                  className="FooterSosialMediaIconBorder"
+                >
                   <FaInstagram className="FooterSosialMediaIcon" />
-                </div>
-                <div className="FooterSosialMediaIconBorder">
+                </Link>
+                {/* youtube */}
+                <Link
+                  to={
+                    "https://www.youtube.com/channel/UCaabhhkqzM8dP7u4DgPMMRg"
+                  }
+                  target="_blnak"
+                  className="FooterSosialMediaIconBorder"
+                >
                   <FaYoutube className="FooterSosialMediaIcon" />
-                </div>
-                <div className="FooterSosialMediaIconBorder">
+                </Link>
+                {/* x  */}
+                <Link
+                  to={"https://x.com/Jazeancoffee"}
+                  target="_blnak"
+                  className="FooterSosialMediaIconBorder"
+                >
                   <FaXTwitter className="FooterSosialMediaIcon" />
-                </div>
+                </Link>
               </div>
               <h2 className="footerTitle">CALL US</h2>
               <div className="contact">
@@ -49,7 +65,7 @@ const Footer = () => {
             <div className="footerCal">
               <h2 className="footerTitle">SUBSCRIBE TO OUR NEWSLETTER</h2>
               <div className="emailBlog">
-                <input type="email" placeholder="Email Addres"/>
+                <input type="email" placeholder="Email Addres" />
                 <button>
                   <span>SUBSCRIBE </span>
                   <span>TO </span>

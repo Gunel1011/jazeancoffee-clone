@@ -1,15 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/img/svg/logo.svg";
 import pageList from "../constant/pageList";
-import Flover from "../assets/img/svg/fourLeafFlower.svg?react";
-import Leaf from "../assets/img/svg/leaf.svg?react";
-import Sunburst from "../assets/img/svg/sunburst.svg?react";
-import Star from "../assets/img/svg/star.svg?react";
-import Square from "../assets/img/svg/square.svg?react";
-import LeafBubbles from "../assets/img/svg/leafBubbles.svg?react";
+
 const Header = () => {
+  const location = useLocation();
+  const isDetailPage = location.pathname.startsWith("/car-details");
   return (
-    <header className="header">
+    <header
+      className="header"
+      style={{
+        backgroundColor: isDetailPage ? "#180D0A" : "",
+      }}
+    >
       <div className="container">
         <div className="row">
           <div className="logo">
@@ -26,15 +28,6 @@ const Header = () => {
                 ))}
             </ul>
           </nav>
-
-          <div className="navigation">
-            <LeafBubbles className="navigationIcon" />
-            <Flover className="navigationIcon" />
-            <Sunburst className="navigationIcon" />
-            <Star className="navigationIcon" />
-            <Square className="navigationIcon" />
-            <Leaf className="navigationIcon" />
-          </div>
         </div>
       </div>
     </header>

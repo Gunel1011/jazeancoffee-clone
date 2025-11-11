@@ -49,13 +49,14 @@
           }
           .swiper-slide-active {
             opacity: 1;
-            transform: translateX(-30px);
+            transform: translateX(-20px);
             filter: blur(0px);
-
             .swpierImg {
+              width: 290px;
+              height: 320px;
               img {
-                width: 260px;
-                height: 300px;
+                width: 290px;
+                height: 320px;
               }
             }
           }
@@ -85,7 +86,7 @@
             left: 37%;
           }
           .swiper-button-next {
-            right: 36%;
+            right: 38%;
           }
         }
       }

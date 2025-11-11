@@ -3,6 +3,7 @@
 // components
 @use "./components/header";
 @use "./components/footer";
+@use "../scss/components/navigation";
 
 // pages
 @use "../scss/pages/Home/hero";
@@ -13,4 +14,4 @@
 @use "../scss/pages/Home/perfectFusion";
 @use "../scss/pages/Home/discover";
 @use "../scss/pages/Home/products";
-@use "../scss/pages/Home/coffeeDetails"
+@use "../scss/pages/Home/coffeeDetails";

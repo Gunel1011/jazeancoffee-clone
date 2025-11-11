@@ -1,8 +1,7 @@
 @use "../../variables" as *;
 .roastedBeans {
-  position: absolute;
+  position: relative;
   z-index: 10;
- 
   .ourVideo {
     width: 100%;
     position: relative;
