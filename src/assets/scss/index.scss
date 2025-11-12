@@ -4,6 +4,8 @@
 @use "./components/header";
 @use "./components/footer";
 @use "../scss/components/navigation";
+@use "../scss/components/customButton";
+@use "../scss/components/loading";
 
 // pages
 // Home
@@ -18,3 +20,5 @@
 @use "../scss/pages/Home/coffeeDetails";
 // Store
 @use "../scss/pages/Store/store";
+// contact
+@use "../scss/pages/contact/contact";

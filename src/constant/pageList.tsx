@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Home from "../Modules/Home/View/Home";
 import CoffeeDeatils from "../Modules/Home/View/CoffeeDeatils";
 import Store from "../Modules/Store/View/Store";
+import Contact from "../Modules/Contact/View/Contact";
 
 interface IPage {
   id: string;
@@ -73,7 +74,7 @@ const pageList: IPage[] = [
     title: "Contact Us",
     path: "/contact",
     is_visible: true,
-    elemet: <Home />,
+    elemet: <Contact />,
     for_header: true,
   },
 ];

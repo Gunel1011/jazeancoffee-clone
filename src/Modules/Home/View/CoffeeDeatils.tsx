@@ -10,14 +10,17 @@ import "swiper/css/navigation";
 
 import ShopCard from "./ShopCard";
 import { Navigation } from "swiper/modules";
+import Loading from "../../../components/Loading";
 
 const CoffeeDeatils = () => {
   const { id } = useParams();
+  const [loading, setLoading] = useState(false);
   console.log(id);
   const [product, setProduct] = useState<IProduct>();
   const [products, setProducts] = useState<IProduct[]>([]);
 
   const getDetails = async () => {
+    setLoading(true);
     try {
       if (id) {
         const res = await HomeService.productDetails(id);
@@ -27,12 +30,17 @@ const CoffeeDeatils = () => {
       setProducts(res);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     getDetails();
   }, []);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <section className="coffeDetails">
       <div className="container">
@@ -89,7 +97,7 @@ const CoffeeDeatils = () => {
                   <p className="price">{item.price} $</p>
                   <div className="buttonAdd">
                     <span> Quick Add</span>
-                    <Plus className="plus"/>
+                    <Plus className="plus" />
                   </div>
                 </SwiperSlide>
               ))}

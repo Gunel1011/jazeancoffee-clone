@@ -1,0 +1,31 @@
+@use "../variables" as *;
+button {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 20px;
+  background-color: $orange;
+  padding: 13px 18px;
+  border: none;
+  color: $lightBeige;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  &:hover span {
+    animation: slideUp 0.9s ease-in-out;
+  }
+  span {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  span:nth-child(1) {
+    animation-delay: 0s;
+  }
+  span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  span:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  span:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+}

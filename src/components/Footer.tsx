@@ -5,6 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdPhoneAndroid } from "react-icons/md";
+import CostumButton from "./CostumButton";
 
 const Footer = () => {
   return (
@@ -87,12 +88,7 @@ const Footer = () => {
               <h2 className="footerTitle">SUBSCRIBE TO OUR NEWSLETTER</h2>
               <div className="emailBlog">
                 <input type="email" placeholder="Email Addres" />
-                <button>
-                  <span>SUBSCRIBE </span>
-                  <span>TO </span>
-                  <span>OUR </span>
-                  <span>NEWSLETTER</span>
-                </button>
+                <CostumButton text={["SUBSCRIBE", "TO", "OUR", "NEWSLETTER"]} />
               </div>
             </div>
           </div>

@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Plus from "../../../assets/img/svg/plus.svg?react"
 import "swiper/css";
 import "swiper/css/pagination";
-import "../../../assets/swiper.css";
 import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import type { IProduct } from "../../Home/Models/HomeModels";
@@ -14,6 +13,7 @@ import { HomeService } from "../../Home/Service/HomeService";
 import ShopCard from "../../Home/View/ShopCard";
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
+  
   const getStoreData = async () => {
     try {
       const res = await HomeService.productList();

@@ -1,0 +1,64 @@
+@use "../../variables" as *;
+.contact {
+  margin-top: 90px;
+  background-color: $obsidianBrown;
+  .row {
+    .leftSide {
+      background: linear-gradient(#0000006d),
+        url(../../../img/Asset-24.png) center/cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+      width: 640px;
+      padding: 72px;
+      .leftSideTitle {
+        text-align: center;
+        font-size: 42.672px;
+        color: $whitedim;
+        font-weight: 100;
+        font-family: "montserrat";
+      }
+    }
+    .rightSide {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0 60px;
+      .rightSideTitle {
+        font-size: 21px;
+        color: $lightBeige;
+      }
+      form {
+        input,
+        textarea {
+          border-bottom: 1px solid $softBrown;
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          padding: 12px 0;
+          background-color: transparent;
+          color: #fff;
+          &:focus {
+            border-bottom: 1px solid $softBrown;
+            outline: none;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+          }
+        }
+        .inputBlock {
+          display: flex;
+          gap: 26px;
+          margin: 26px 0;
+          input {
+            width: 239px;
+          }
+        }
+        textarea {
+          width: 100%;
+          resize: none;
+          height: 84px;
+        }
+      }
+    }
+  }
+}

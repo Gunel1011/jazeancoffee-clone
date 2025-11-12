@@ -7,22 +7,28 @@ import { useEffect, useState } from "react";
 import type { IProduct } from "../../Models/HomeModels";
 import { HomeService } from "../../Service/HomeService";
 import ShopCard from "../ShopCard";
+import Loading from "../../../../components/Loading";
 const Products = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
-
+  const [loading, setLoading] = useState(false);
   const getData = async () => {
+    setLoading(true);
     try {
       const res = await HomeService.productList();
       setProducts(res);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     getData();
   }, []);
-
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <section className="products">
       <div className="container">
@@ -43,13 +49,15 @@ const Products = () => {
               modules={[Navigation]}
               className="mySwiper"
             >
-              {products.filter(item=>item.for_slide).map((item) => (
-                <SwiperSlide key={item._id}>
-                  <div className="swpierImg">
-                    <ShopCard data={item} key={item._id} />
-                  </div>
-                </SwiperSlide>
-              ))}
+              {products
+                .filter((item) => item.for_slide)
+                .map((item) => (
+                  <SwiperSlide key={item._id}>
+                    <div className="swpierImg">
+                      <ShopCard data={item} key={item._id} />
+                    </div>
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
         </div>
