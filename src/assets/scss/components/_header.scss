@@ -1,7 +1,11 @@
 @use "../variables" as *;
 .header {
-  position: relative;
-  z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
   .container {
     .row {
       align-items: center;
@@ -29,8 +33,14 @@
             }
           }
         }
+        .header--overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background: transparent;
+        }
       }
-     
     }
   }
 }

@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Home from "../Modules/Home/View/Home";
 import CoffeeDeatils from "../Modules/Home/View/CoffeeDeatils";
+import Store from "../Modules/Store/View/Store";
 
 interface IPage {
   id: string;
@@ -41,7 +42,7 @@ const pageList: IPage[] = [
     path: "/story",
     is_visible: true,
     for_header: true,
-    elemet: <Home />,
+    elemet: <Store />,
   },
   {
     id: "businesses",

@@ -8,7 +8,7 @@ const RefinedProcess = () => {
       <div className="container">
         <div className="row">
           {/* leftSide  */}
-          <div className="rafineContext">
+          <div className="rafineContext" data-aos="fade-up">
             <h2 className="title">MASTERS OF TECHNIQUE</h2>
             <p className="text">
               With a fine eye for detail, the farmers process the cherries to

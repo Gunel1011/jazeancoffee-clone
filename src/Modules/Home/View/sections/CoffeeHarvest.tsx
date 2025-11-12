@@ -17,7 +17,7 @@ const CoffeeHarvest = () => {
         </div>
         <div className="row">
           {/* left side  */}
-          <div className="contentLefth">
+          <div className="contentLefth" data-aos="fade-up">
             <h2 className="text">SELECTIVELY HAND-PICKED, GRAIN BY GRAIN</h2>
             <Leaf className="leaf" />
           </div>
@@ -29,7 +29,7 @@ const CoffeeHarvest = () => {
           </div>
           {/* right side  */}
           <div className="contentRigth">
-            <p className="text">
+            <p className="text" data-aos="fade-up">
               Proud of their heritage and the bounty of their sprawling green
               lands
             </p>

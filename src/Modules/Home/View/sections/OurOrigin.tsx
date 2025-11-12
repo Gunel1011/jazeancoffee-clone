@@ -13,12 +13,14 @@ const OurOrigin = () => {
         <div className="row">
           <div className="origin">
             <div className="originContent">
-              <h2 className="originTitle">A GREEN GOLD “COFFEA”</h2>
-              <p className="originText">
+              <h2 className="originTitle" data-aos="fade-up">
+                A GREEN GOLD “COFFEA”
+              </h2>
+              <p className="originText" data-aos="fade-up">
                 Nestled in the abundant green mountainscapes and unrivalled
                 beauty of the southern region
               </p>
-                <LeafBuble className="leaf" />
+              <LeafBuble className="leaf" data-aos="fade-up" />
             </div>
           </div>
         </div>

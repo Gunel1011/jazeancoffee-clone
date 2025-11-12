@@ -13,8 +13,19 @@ const Footer = () => {
         <div className="row">
           <div className="topSide">
             <div className="footerCalLogo">
-              <img src={logo} alt="logo" />
-              <div className="footerNavigation">
+              <img
+                src={logo}
+                alt="logo"
+                data-aos="fade-left"
+                data-aos-offset="100"
+                data-aos-delay="200"
+              />
+              <div
+                className="footerNavigation"
+                data-aos="fade-left"
+                data-aos-offset="200"
+                data-aos-delay="400"
+              >
                 <h2 className="footerTitle">Jazean</h2>
                 {pageList
                   .filter((page) => page.for_header)
@@ -25,7 +36,12 @@ const Footer = () => {
                   ))}
               </div>
             </div>
-            <div className="footerCal">
+            <div
+              className="footerCal"
+              data-aos="fade-left"
+              data-aos-offset="200"
+              data-aos-delay="400"
+            >
               <h2 className="footerTitle">FOLLOW US</h2>
               {/* sosial media icons  */}
               <div className="sosialMediaIcons">
@@ -62,7 +78,12 @@ const Footer = () => {
                 <Link to={"callto:920012063"}>920012063</Link>
               </div>
             </div>
-            <div className="footerCal">
+            <div
+              className="footerCal"
+              data-aos="fade-left"
+              data-aos-offset="100"
+              data-aos-delay="300"
+            >
               <h2 className="footerTitle">SUBSCRIBE TO OUR NEWSLETTER</h2>
               <div className="emailBlog">
                 <input type="email" placeholder="Email Addres" />

@@ -2,7 +2,7 @@
 .hero {
   background: linear-gradient($overlay), url(../../../img/bg.jpeg) center/cover;
   height: 100vh;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 0;
   .container {
@@ -20,22 +20,6 @@
           height: 75px;
         }
       }
-      // .navigation {
-      //   position: fixed;
-      //   display: flex;
-      //   flex-direction: column;
-      //   z-index: 999;
-      //   .navigationIcon {
-      //     width: 48px;
-      //     height: 48px;
-      //     margin: 12px;
-      //     cursor: pointer;
-      //     color: $brow;
-      //   }
-      //   &:hover > :not(:hover) {
-      //     opacity: 0.5;
-      //   }
-      // }
     }
   }
 }

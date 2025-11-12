@@ -1,0 +1,190 @@
+@use "../../variables" as *;
+.store {
+  background-color: $bg;
+  .container {
+    .row {
+      height: 100vh;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      .storeTitle {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        .star {
+          width: 16px;
+          height: 25px;
+        }
+        .title {
+          color: $yellow;
+          width: 266px;
+          font-size: 36px;
+          text-align: center;
+        }
+        .search {
+          position: relative;
+          width: 600px;
+          display: flex;
+          align-items: center;
+          input {
+            width: 600px;
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: transparent;
+            border-bottom: 1px solid $softBeige;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color: $whitedim;
+            padding: 10px 30px;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .searcImg {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            color: $softBeige;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+  .swiperStore {
+    .swiper {
+      width: 100%;
+      height: 100%;
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 412px;
+          object-fit: cover;
+        }
+
+        &:nth-child(2n) {
+          width: 60%;
+        }
+
+        &:nth-child(3n) {
+          width: 40%;
+        }
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        color: #fff;
+      }
+
+      .swiper-button-prev {
+        left: 5%;
+      }
+      .swiper-button-next {
+        right: 5%;
+      }
+    }
+  }
+  .productBlock {
+    background-color: $softIvory;
+    padding: 56px;
+    .container {
+      .productBlockTitle {
+        font-size: 20px;
+        color: $brown;
+      }
+      .productBlockText {
+        font-size: 12px;
+        margin-top: 4px;
+        color: $brown;
+        opacity: 0.6;
+        max-width: 247px;
+      }
+      .productAll {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 80px;
+        .product {
+          flex: 0 0 calc((100% - 20px) / 3);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+          padding-top: 80px;
+
+          &:hover {
+            background-color: $sliderHover;
+            .buttonAdd {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0px);
+            }
+          }
+
+          .swpierImg {
+            width: 215px;
+            height: 258px;
+          }
+          .name {
+            text-align: center;
+            font-size: 16px;
+            color: $brown;
+          }
+          .text {
+            color: $brownSoft;
+            font-size: 12px;
+            text-align: center;
+            margin: 10px 0;
+          }
+          .price {
+            color: $brown;
+            font-size: 18px;
+          }
+          .buttonAdd {
+            opacity: 0;
+            visibility: hidden;
+            border: 1px solid $orange;
+            border-radius: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 6px;
+            gap: 5px;
+            margin-top: 10px;
+            transform: translateY(10px);
+            .plus {
+              width: 12px;
+              height: 12px;
+            }
+            span {
+              color: $orange;
+              font-size: 11px;
+            }
+            &:hover {
+              background-color: $orange;
+              span {
+                color: $detailBg;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

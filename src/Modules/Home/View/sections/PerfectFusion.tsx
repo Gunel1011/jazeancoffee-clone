@@ -13,7 +13,12 @@ const PerfectFusion = () => {
         <div className="container">
           <div className="row">
             <div className="origin">
-              <div className="originContent">
+              <div
+                className="originContent"
+                data-aos="fade-up"
+                data-aos-offset="600"
+                data-aos-delay="600"
+              >
                 <h2 className="originTitle">FLAWLESS FLAVORS</h2>
                 <p className="originText">
                   A little floral, a little nutty, a little smokey and a little
