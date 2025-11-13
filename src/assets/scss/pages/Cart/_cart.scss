@@ -1,0 +1,36 @@
+@use "../../variables" as *;
+.cart {
+  background-color: $bg;
+  .container {
+    .row {
+      padding-top: 170px;
+      flex-direction: column;
+      .cartTopSide {
+        .cartTitle {
+          font-size: 30px;
+          color: $softIvory;
+          margin-bottom: 56px;
+        }
+      }
+      .cartBottomSide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .cartBottomSideText {
+          margin: 48px 0;
+          color: $softIvory;
+          font-size: 16px;
+        }
+        .continueShoping {
+          padding: 6px 24px;
+          margin-top: 48px;
+          color: $lightBeige;
+          background-color: $gray;
+          &:hover {
+            background-color: $softgray;
+          }
+        }
+      }
+    }
+  }
+}

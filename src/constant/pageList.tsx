@@ -4,6 +4,7 @@ import CoffeeDeatils from "../Modules/Home/View/CoffeeDeatils";
 import Store from "../Modules/Store/View/Store";
 import Contact from "../Modules/Contact/View/Contact";
 import Centers from "../Modules/Centers/View/Centers";
+import Cart from "../Modules/Cart/Cart";
 
 interface IPage {
   id: string;
@@ -19,6 +20,14 @@ const pageList: IPage[] = [
     title: "Home",
     path: "/",
     elemet: <Home />,
+    is_visible: true,
+    for_header: false,
+  },
+  {
+    id: "cart",
+    title: "Cart",
+    path: "/cart",
+    elemet: <Cart />,
     is_visible: true,
     for_header: false,
   },

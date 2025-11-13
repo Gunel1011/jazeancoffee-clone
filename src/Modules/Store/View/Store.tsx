@@ -3,7 +3,7 @@ import Search from "../../../assets/img/svg/search.svg?react";
 import storeImg1 from "../../../assets/img/store_img_1.jpg";
 import storeImg2 from "../../../assets/img/store_img_2.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Plus from "../../../assets/img/svg/plus.svg?react"
+import Plus from "../../../assets/img/svg/plus.svg?react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
@@ -11,9 +11,13 @@ import { useEffect, useState } from "react";
 import type { IProduct } from "../../Home/Models/HomeModels";
 import { HomeService } from "../../Home/Service/HomeService";
 import ShopCard from "../../Home/View/ShopCard";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { addToCart } from "../../../redux/slices/productSlice";
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  
+  const cart = useAppSelector((state) => state.productSlice.cart);
+  const dispact = useAppDispatch();
+  console.log(cart);
   const getStoreData = async () => {
     try {
       const res = await HomeService.productList();
@@ -77,7 +81,10 @@ const Store = () => {
                 <h2 className="name">{item.name}</h2>
                 <p className="text">{item.details}</p>
                 <p className="price">{item.price} $</p>
-                <div className="buttonAdd">
+                <div
+                  className="buttonAdd"
+                  onClick={() => dispact(addToCart(item))}
+                >
                   <span> Quick Add</span>
                   <Plus className="plus" />
                 </div>

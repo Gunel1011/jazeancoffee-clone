@@ -1,9 +1,11 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Myrouters from "./router/Myrouters";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { Provider } from "react-redux";
 import { useEffect } from "react";
+import { store } from "./redux/store";
 
 const App = () => {
   useEffect(() => {
@@ -16,11 +18,13 @@ const App = () => {
     });
   }, []);
   return (
-    <>
+    <Provider store={store}>
       <Header />
-      <Myrouters />
+      <main>
+        <Myrouters />
+      </main>
       <Footer />
-    </>
+    </Provider>
   );
 };
 
