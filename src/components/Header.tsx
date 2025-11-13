@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/img/svg/logo.svg";
 import pageList from "../constant/pageList";
 import { motion } from "framer-motion";
@@ -38,9 +38,9 @@ const Header = () => {
     >
       <div className="container">
         <div className="row">
-          <div className="logo" data-aos="fade-down">
+          <Link to={"/"} className="logo" data-aos="fade-down">
             <img src={logo} alt="logo" />
-          </div>
+          </Link>
 
           <nav className="navBar">
             <ul className="navList">

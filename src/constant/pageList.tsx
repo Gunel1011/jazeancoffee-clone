@@ -3,6 +3,7 @@ import Home from "../Modules/Home/View/Home";
 import CoffeeDeatils from "../Modules/Home/View/CoffeeDeatils";
 import Store from "../Modules/Store/View/Store";
 import Contact from "../Modules/Contact/View/Contact";
+import Centers from "../Modules/Centers/View/Centers";
 
 interface IPage {
   id: string;
@@ -58,7 +59,7 @@ const pageList: IPage[] = [
     title: "Centers",
     path: "/centers",
     is_visible: true,
-    elemet: <Home />,
+    elemet: <Centers />,
     for_header: true,
   },
   {

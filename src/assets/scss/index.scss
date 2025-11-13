@@ -6,6 +6,7 @@
 @use "../scss/components/navigation";
 @use "../scss/components/customButton";
 @use "../scss/components/loading";
+@use "../scss/components/costomInfoSection";
 
 // pages
 // Home
@@ -21,4 +22,6 @@
 // Store
 @use "../scss/pages/Store/store";
 // contact
-@use "../scss/pages/contact/contact";
+@use "../scss/pages/Contact/contact";
+// Centers
+@use "../scss/pages/Centers/centers";

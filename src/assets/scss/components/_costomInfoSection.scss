@@ -1,0 +1,57 @@
+@use "../variables" as *;
+.customInfo {
+  .container {
+    .img {
+      background: linear-gradient(#0000004f),
+        url(../../img/addresBg.webp) center/cover;
+      height: 796px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .centersTop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 90px;
+        .centersTopTitle {
+          width: 430px;
+          font-size: 53px;
+          color: $lightBeige;
+          text-align: center;
+          font-size: 100;
+          font-family: "montserrat";
+        }
+        .centersTopText {
+          color: $text;
+          font-size: 12px;
+          margin-top: 12px;
+          width: 275px;
+          text-align: center;
+        }
+      }
+      .centersBottom {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        .centersBottomBlock {
+          .centersBottomBlockTitle {
+            color: $lightBeige;
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 11px;
+          }
+          .centersBottomBlockText {
+            font-size: 11px;
+            color: $lightBeige;
+            width: 230px;
+          }
+          .centersBottomBlockMenu {
+            font-size: 12px;
+            color: $orange;
+          }
+        }
+      }
+    }
+  }
+}

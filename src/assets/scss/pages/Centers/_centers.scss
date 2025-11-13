@@ -1,0 +1,39 @@
+@use "../../variables" as *;
+.centers {
+  margin-top: 90px;
+  background-color: $bg;
+
+  .container {
+    .row {
+      flex-direction: column;
+      .centersTopSide {
+        padding: 72px 43px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .centersStar {
+          width: 22px;
+          height: 36px;
+        }
+        .centersBalance {
+          margin: 30px 0;
+          width: 239px;
+          height: 78px;
+        }
+        .centersTitle {
+          width: 547px;
+          font-size: 53px;
+          margin: 5px 0 10px 0;
+          color: $dimWhite;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .centersBottomSide {
+    background-color: $centersBg;
+    padding: 120px 0;
+    margin-top: 120px;
+  }
+}

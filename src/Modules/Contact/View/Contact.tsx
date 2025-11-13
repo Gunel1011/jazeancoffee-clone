@@ -2,7 +2,6 @@ import CustomButton from "../../../components/CostumButton";
 const Contact = () => {
   return (
     <section className="contact">
-      
       <div className="row">
         {/* left Side  */}
         <div className="leftSide">
