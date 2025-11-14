@@ -5,6 +5,7 @@ import Store from "../Modules/Store/View/Store";
 import Contact from "../Modules/Contact/View/Contact";
 import Centers from "../Modules/Centers/View/Centers";
 import Cart from "../Modules/Cart/Cart";
+import NotFound from "../components/NotFound";
 
 interface IPage {
   id: string;
@@ -86,6 +87,14 @@ const pageList: IPage[] = [
     is_visible: true,
     elemet: <Contact />,
     for_header: true,
+  },
+  {
+    id: "not-found",
+    title: "Not Found",
+    path: "*",
+    is_visible: true,
+    elemet: <NotFound />,
+    for_header: false,
   },
 ];
 

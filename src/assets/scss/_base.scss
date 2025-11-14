@@ -29,3 +29,16 @@ img {
   height: 100%;
   object-fit: cover;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #271606;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5e3624;
+  border-radius: 3px;
+  border: 1px solid #373636;
+}

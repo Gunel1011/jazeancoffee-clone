@@ -11,14 +11,18 @@ import "swiper/css/navigation";
 import ShopCard from "./ShopCard";
 import { Navigation } from "swiper/modules";
 import Loading from "../../../components/Loading";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { addToCart } from "../../../redux/slices/productSlice";
 
 const CoffeeDeatils = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   console.log(id);
-  const [product, setProduct] = useState<IProduct>();
+  const [product, setProduct] = useState<IProduct>({} as IProduct);
   const [products, setProducts] = useState<IProduct[]>([]);
-
+  const dispacth = useAppDispatch();
+  const cart = useAppSelector((state) => state.productSlice.cart);
+  console.log(cart);
   const getDetails = async () => {
     setLoading(true);
     try {
@@ -55,14 +59,18 @@ const CoffeeDeatils = () => {
                 <h2 className="basketTitle">Size</h2>
                 <span className="size">250g</span>
                 <p className="price">{product?.price} $</p>
-                <div className="buttons">
-                  <div className="countBlcok">
-                    <button>-</button>
+                <div className="coffeeDetailButtons">
+                  <div className="coffeeDetailButtonsCountBlcok">
+                    <button className="coffeeDetailBtn">-</button>
                     <p className="count">0</p>
-                    <button>+</button>
+                    <button className="coffeeDetailBtn">+</button>
                   </div>
-
-                  <button className="addToCart">Add to cart</button>
+                  <button
+                    className="addToCart"
+                    onClick={() => dispacth(addToCart(product))}
+                  >
+                    Add to cart
+                  </button>
                 </div>
                 <button className="buy">Buy now</button>
               </div>

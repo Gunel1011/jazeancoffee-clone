@@ -21,7 +21,7 @@ const CostumButton: React.FC<CustomButtonProps> = ({
     }
   };
   return (
-    <button
+    <button className="customBtn"
       onClick={handleClick}
       style={{
         backgroundColor: backgroundColor || "#ff652d",

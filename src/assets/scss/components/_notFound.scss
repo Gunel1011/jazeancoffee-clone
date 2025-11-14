@@ -1,0 +1,73 @@
+@use "../variables" as *;
+.notFound {
+  background-color: $bg;
+  padding-top: 100px;
+  .container {
+    .row {
+      align-items: center;
+      justify-content: space-around;
+      .notFoundBlock {
+        .notFoundTitle {
+          position: relative;
+          color: $orange;
+          font-size: 50px;
+          font-weight: 900;
+          margin-bottom: 50px;
+          animation: float 2s ease-in-out infinite;
+        }
+        .notFoundText {
+          position: relative;
+          font-size: 20px;
+          color: $lightBeige;
+          animation: op 2s ease-in-out infinite;
+        }
+        .link {
+          margin-top: 60px;
+          .backHome {
+            color: $lightBeige;
+            font-size: 15px;
+            background-color: $orange;
+            padding: 10px 15px;
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+      .notFoundImg {
+        width: 500px;
+        height: 500px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+@keyframes float {
+  0% {
+    top: 0;
+    opacity: 0.3;
+  }
+  50% {
+    top: -50px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0.3;
+  }
+}
+@keyframes op {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
