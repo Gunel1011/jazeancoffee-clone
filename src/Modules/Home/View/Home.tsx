@@ -1,3 +1,4 @@
+import CustomSection from "../../../components/CustomSection";
 import Navgitaion from "../../../components/Navgitaion";
 import CoffeeHarvest from "./sections/CoffeeHarvest";
 import DiscoverYourPath from "./sections/DiscoverYourPath";
@@ -20,6 +21,7 @@ const Home = () => {
       <PerfectFusion />
       <DiscoverYourPath />
       <Products />
+      <CustomSection />
     </>
   );
 };

@@ -1,6 +1,7 @@
 @use "../variables" as *;
 .customInfo {
   .container {
+    width: 100%;
     .img {
       background: linear-gradient(#0000004f),
         url(../../img/addresBg.webp) center/cover;

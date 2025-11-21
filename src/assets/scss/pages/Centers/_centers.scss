@@ -2,7 +2,6 @@
 .centers {
   margin-top: 90px;
   background-color: $bg;
-
   .container {
     .row {
       flex-direction: column;
@@ -33,7 +32,7 @@
   }
   .centersBottomSide {
     background-color: $centersBg;
-    padding: 120px 0;
+    padding: 120px 70px;
     margin-top: 120px;
   }
 }
