@@ -13,6 +13,7 @@ import { Navigation } from "swiper/modules";
 import Loading from "../../../components/Loading";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/slices/productSlice";
+import showNotification from "../../../utils/showNotification";
 
 const CoffeeDeatils = () => {
   const { id } = useParams();
@@ -32,7 +33,8 @@ const CoffeeDeatils = () => {
       const res = await HomeService.productList();
       setProducts(res);
     } catch (error) {
-      console.log(error);
+      console.log(`error submit`, error);
+      showNotification("error", error?.response?.data);
     } finally {
       setLoading(false);
     }

@@ -13,6 +13,7 @@ import { HomeService } from "../../Home/Service/HomeService";
 import ShopCard from "../../Home/View/ShopCard";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/slices/productSlice";
+import showNotification from "../../../utils/showNotification";
 
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -25,6 +26,7 @@ const Store = () => {
       setProducts(res);
     } catch (error) {
       console.log(error);
+      showNotification("error",error?.response?.data)
     }
   };
   useEffect(() => {

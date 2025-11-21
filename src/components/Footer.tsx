@@ -76,7 +76,7 @@ const Footer = () => {
               <h2 className="footerTitle">CALL US</h2>
               <div className="contactFotter">
                 <MdPhoneAndroid className="phone" />
-                <Link to={"callto:920012063"}>920012063</Link>
+                <Link to={`tel:920012063`}>920012063</Link>
               </div>
             </div>
             <div

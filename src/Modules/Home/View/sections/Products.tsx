@@ -8,6 +8,7 @@ import type { IProduct } from "../../Models/HomeModels";
 import { HomeService } from "../../Service/HomeService";
 import ShopCard from "../ShopCard";
 import Loading from "../../../../components/Loading";
+import showNotification from "../../../../utils/showNotification";
 const Products = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,7 @@ const Products = () => {
       setProducts(res);
     } catch (error) {
       console.log(error);
+      showNotification("error", error?.response?.data);
     } finally {
       setLoading(false);
     }
