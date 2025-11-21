@@ -2,7 +2,7 @@ import BeanVedoe from "../../../../assets/video/coffee.beanVedoe.mp4";
 import Star from "../../../../assets/img/svg/star.svg?react";
 const RoastedBeans = () => {
   return (
-    <section className="roastedBeans">
+    <section className="roastedBeans" id="roastedBeansSection">
       <div className="ourVideo">
         <video id="vide" autoPlay muted loop playsInline>
           <source src={BeanVedoe} type="video/mp4" />

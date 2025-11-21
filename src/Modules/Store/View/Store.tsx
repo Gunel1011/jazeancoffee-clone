@@ -18,15 +18,15 @@ import showNotification from "../../../utils/showNotification";
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const cart = useAppSelector((state) => state.productSlice.cart);
-  const dispact = useAppDispatch();
-  console.log(cart);
+  const dispatch = useAppDispatch();
+  console.log("Cart:", cart);
   const getStoreData = async () => {
     try {
       const res = await HomeService.productList();
       setProducts(res);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
-      showNotification("error",error?.response?.data)
+      showNotification("error", error?.response?.data);
     }
   };
   useEffect(() => {
@@ -86,7 +86,7 @@ const Store = () => {
                 <p className="price">{item.price} $</p>
                 <div
                   className="buttonAdd"
-                  onClick={() => dispact(addToCart(item))}
+                  onClick={() => dispatch(addToCart(item))}
                 >
                   <span> Quick Add</span>
                   <Plus className="plus" />

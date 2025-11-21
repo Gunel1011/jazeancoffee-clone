@@ -42,8 +42,8 @@ const Contact = () => {
       await sendContactEmail(data);
       showNotification("success", "Message Send");
       reset();
-    } catch {
-      showNotification("error", errors?.response?.data);
+    } catch (error: any) {
+      showNotification("error", error?.response?.data);
     }
   };
 

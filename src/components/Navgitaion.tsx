@@ -7,12 +7,24 @@ import LeafBubbles from "../assets/img/svg/leafBubbles.svg?react";
 const Navgitaion = () => {
   return (
     <div className="navigation">
-      <LeafBubbles className="navigationIcon" />
-      <Flover className="navigationIcon" />
-      <Sunburst className="navigationIcon" />
-      <Star className="navigationIcon" />
-      <Square className="navigationIcon" />
-      <Leaf className="navigationIcon" />
+      <a href="#ourOriginSection">
+        <LeafBubbles className="navigationIcon" />
+      </a>
+      <a href="#harvestSection">
+        <Flover className="navigationIcon" />
+      </a>
+      <a href="#rafindedSection">
+        <Sunburst className="navigationIcon" />
+      </a>
+      <a href="#roastedBeansSection">
+        <Star className="navigationIcon" />
+      </a>
+      <a href="#perfectFusionSection">
+        <Square className="navigationIcon" />
+      </a>
+      <a href="#dicoverSection">
+        <Leaf className="navigationIcon" />
+      </a>
     </div>
   );
 };

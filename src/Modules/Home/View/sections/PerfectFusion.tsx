@@ -4,7 +4,7 @@ import Square from "../../../../assets/img/svg/square.svg?react";
 const PerfectFusion = () => {
   return (
     <div>
-      <section className="perfectFusion">
+      <section className="perfectFusion" id="perfectFusionSection">
         <div className="ourVideo">
           <video id="vide" autoPlay muted loop playsInline>
             <source src={BeanVedoe} type="video/mp4" />

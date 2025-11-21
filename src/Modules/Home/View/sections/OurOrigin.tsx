@@ -3,7 +3,7 @@ import LeafBuble from "../../../../assets/img/svg/leafBubbles.svg?react";
 
 const OurOrigin = () => {
   return (
-    <section className="ourOrigin">
+    <section className="ourOrigin" id="ourOriginSection">
       <div className="ourVideo">
         <video id="vide" autoPlay muted loop playsInline>
           <source src={Origin} type="video/mp4" />

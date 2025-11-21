@@ -6,7 +6,7 @@ import Bag from "../../../../assets/img/svg/bag.svg?react";
 import patter from "../../../../assets/img/sectionPattern.webp";
 const DiscoverYourPath = () => {
   return (
-    <section className="discover">
+    <section className="discover" id="dicoverSection">
       <div className="container">
         <div className="row">
           <div className="discoverBlockTop">
@@ -14,7 +14,7 @@ const DiscoverYourPath = () => {
               <Line className="line" />
               <LuUserRound className="user" />
               <h2 className="discoverTitle">INDIVIDUAL</h2>
-              <Link to={"/"}>
+              <Link to={"/story"}>
                 <span>DISCOVER</span>
                 <span>NOW</span>
               </Link>
@@ -26,7 +26,7 @@ const DiscoverYourPath = () => {
               <Line className="line lineRota" />
               <Bag className="user" />
               <h2 className="discoverTitle">INDIVIDUAL</h2>
-              <Link to={"/"}>
+              <Link to={"/story"}>
                 <span>DISCOVER</span>
                 <span>NOW</span>
               </Link>

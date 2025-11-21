@@ -4,7 +4,7 @@ import CoffeBag from "../../../../assets/img/svg/coffeeBag.svg?react";
 import CoffeeBean from "../../../../assets/img/svg/coffeeBean.svg?react";
 const RefinedProcess = () => {
   return (
-    <section className="rafined">
+    <section className="rafined" id="rafindedSection">
       <div className="container">
         <div className="row">
           {/* leftSide  */}

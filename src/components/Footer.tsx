@@ -6,8 +6,41 @@ import { FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdPhoneAndroid } from "react-icons/md";
 import CostumButton from "./CostumButton";
+// hook
+import { object, string } from "yup";
+import { EMAIL_REGEX } from "../utils/helper";
+import { useForm } from "react-hook-form";
+import { sendContactEmail } from "../Modules/Contact/Service/ContactService";
+import showNotification from "../utils/showNotification";
+import { yupResolver } from "@hookform/resolvers/yup";
 
+interface IFooterEmail {
+  email: string;
+}
 const Footer = () => {
+  const contactChema = object({
+    email: string()
+      .trim()
+      .required()
+      .matches(EMAIL_REGEX, "Please enter a valid email address"),
+  });
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IFooterEmail>({
+    resolver: yupResolver(contactChema),
+  });
+  const onSubmit = async (data: IFooterEmail) => {
+    try {
+      await sendContactEmail(data);
+      showNotification("success", "Message Send");
+      reset();
+    } catch (errors: any) {
+      showNotification("error", errors?.response?.data);
+    }
+  };
   return (
     <footer className="footer">
       <div className="container">
@@ -86,10 +119,18 @@ const Footer = () => {
               data-aos-delay="100"
             >
               <h2 className="footerTitle">SUBSCRIBE TO OUR NEWSLETTER</h2>
-              <div className="emailBlog">
-                <input type="email" placeholder="Email Addres" />
-                <CostumButton text={["SUBSCRIBE", "TO", "OUR", "NEWSLETTER"]} />
-              </div>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="emailBlog">
+                  <input
+                    type="email"
+                    placeholder="Email Addres"
+                    {...register("email")}
+                  />
+                  <CostumButton
+                    text={["SUBSCRIBE", "TO", "OUR", "NEWSLETTER"]}
+                  />
+                </div>
+              </form>
             </div>
           </div>
         </div>

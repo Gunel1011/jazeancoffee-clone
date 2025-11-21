@@ -3,7 +3,7 @@ import chery from "../../../../assets/img/cherry.webp";
 import Leaf from "../../../../assets/img/svg/fourLeafFlower.svg?react";
 const CoffeeHarvest = () => {
   return (
-    <section className="harvest">
+    <section className="harvest" id="harvestSection">
       <div className="container">
         {/* cery  */}
         <div className="imgCerry">
