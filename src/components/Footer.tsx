@@ -19,19 +19,19 @@ const Footer = () => {
                 alt="logo"
                 data-aos="fade-left"
                 data-aos-offset="100"
-                data-aos-delay="200"
+                data-aos-delay="100"
               />
               <div
                 className="footerNavigation"
                 data-aos="fade-left"
                 data-aos-offset="200"
-                data-aos-delay="400"
+                data-aos-delay="200"
               >
                 <h2 className="footerTitle">Jazean</h2>
                 {pageList
                   .filter((page) => page.for_header)
                   .map((item) => (
-                    <li className="listItem">
+                    <li className="listItem" key={item.id}>
                       <NavLink to={item.path}>{item.title}</NavLink>
                     </li>
                   ))}
@@ -41,7 +41,7 @@ const Footer = () => {
               className="footerCal"
               data-aos="fade-left"
               data-aos-offset="200"
-              data-aos-delay="400"
+              data-aos-delay="300"
             >
               <h2 className="footerTitle">FOLLOW US</h2>
               {/* sosial media icons  */}
@@ -83,7 +83,7 @@ const Footer = () => {
               className="footerCal"
               data-aos="fade-left"
               data-aos-offset="100"
-              data-aos-delay="300"
+              data-aos-delay="100"
             >
               <h2 className="footerTitle">SUBSCRIBE TO OUR NEWSLETTER</h2>
               <div className="emailBlog">

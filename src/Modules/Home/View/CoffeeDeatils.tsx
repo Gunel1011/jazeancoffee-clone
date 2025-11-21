@@ -17,7 +17,6 @@ import { addToCart } from "../../../redux/slices/productSlice";
 const CoffeeDeatils = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
-  console.log(id);
   const [product, setProduct] = useState<IProduct>({} as IProduct);
   const [products, setProducts] = useState<IProduct[]>([]);
   const dispacth = useAppDispatch();

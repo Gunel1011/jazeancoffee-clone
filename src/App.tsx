@@ -3,8 +3,9 @@ import "aos/dist/aos.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Myrouters from "./router/Myrouters";
-import { Provider } from "react-redux";
+
 import { useEffect } from "react";
+import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
 const App = () => {

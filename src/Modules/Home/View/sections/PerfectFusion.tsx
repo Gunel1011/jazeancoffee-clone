@@ -16,7 +16,7 @@ const PerfectFusion = () => {
               <div
                 className="originContent"
                 data-aos="fade-up"
-                data-aos-offset="600"
+                data-aos-offset="500"
                 data-aos-delay="600"
               >
                 <h2 className="originTitle">FLAWLESS FLAVORS</h2>

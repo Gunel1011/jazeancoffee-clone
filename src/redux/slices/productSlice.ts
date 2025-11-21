@@ -15,16 +15,15 @@ export const productSlice = createSlice({
         (item) => item._id === action.payload._id
       );
       if (existing) {
-        const updated = state.cart.filter((dt) => {
-          if (dt._id === existing._id && dt.quantity) {
-            return { ...dt, quantity: dt.quantity++ };
+        state.cart = state.cart.filter((item) => {
+          if (item._id === existing._id && item.quantity) {
+            return { ...item, quantity: item.quantity++ };
           } else {
-            return dt;
+            return item;
           }
         });
-        state.cart = updated;
       } else {
-        state.cart.push({ ...action.payload, quantity: 1 });
+        state.cart = [...state.cart, { ...action.payload, quantity: 1 }];
       }
     },
   },

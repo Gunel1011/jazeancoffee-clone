@@ -13,6 +13,7 @@ import { HomeService } from "../../Home/Service/HomeService";
 import ShopCard from "../../Home/View/ShopCard";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/slices/productSlice";
+
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const cart = useAppSelector((state) => state.productSlice.cart);

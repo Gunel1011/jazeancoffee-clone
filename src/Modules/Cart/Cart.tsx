@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import CloseBtn from "../../assets/img/svg/close.svg?react";
 import { useAppSelector } from "../../redux/hooks";
+import { useEffect } from "react";
+
 const Cart = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
   console.log(cart);
+  useEffect(() => {
+    console.log("CART IN PAGE:", cart);
+  }, [cart]);
+
   return (
     <section className="cart">
       <div className="container">
@@ -26,7 +32,7 @@ const Cart = () => {
               <h2 className="cartProductsLeftSideTitle">Products</h2>
               <ul className="cartList">
                 {cart.map((item) => (
-                  <li className="cartProduct">
+                  <li className="cartProduct" key={item._id}>
                     <CloseBtn className="closeBtn" />
                     <div className="cartProductImg">
                       <img src={item.productImage} alt="skks" />
