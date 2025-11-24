@@ -49,3 +49,23 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .roastedBeans {
+    position: relative;
+    z-index: 10;
+    height: 70vh;
+    .ourVideo {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      height: 70vh;
+      overflow: hidden;
+      #vide {
+        width: 100vw;
+        height: 70vh;
+        transform: scale(2.5);
+      }
+    }
+  }
+}

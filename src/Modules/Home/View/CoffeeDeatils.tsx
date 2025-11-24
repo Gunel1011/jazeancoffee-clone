@@ -32,7 +32,7 @@ const CoffeeDeatils = () => {
       }
       const res = await HomeService.productList();
       setProducts(res);
-    } catch (error) {
+    } catch (error: any) {
       console.log(`error submit`, error);
       showNotification("error", error?.response?.data);
     } finally {

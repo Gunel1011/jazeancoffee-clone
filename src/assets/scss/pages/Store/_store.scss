@@ -188,3 +188,45 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .store {
+    background-color: $bg;
+    .container {
+      .row {
+        .storeTitle {
+          .title {
+            width: 90%;
+            font-size: 26px;
+          }
+          .search {
+            width: 100%;
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .swiperStore {
+      .swiper {
+        display: none;
+      }
+    }
+    .productBlock {
+      background-color: $softIvory;
+      padding: 26px;
+      .container {
+        .productBlockTitle {
+          font-size: 20px;
+          color: $brown;
+        }
+        .productAll {
+          .product {
+            padding: 60px;
+          }
+        }
+      }
+    }
+  }
+}

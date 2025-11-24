@@ -56,3 +56,23 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .customInfo {
+    .container {
+      .img {
+        .centersTop {
+          .centersTopTitle {
+            width: 300px;
+            font-size: 35px;
+          }
+        }
+        .centersBottom {
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+        }
+      }
+    }
+  }
+}

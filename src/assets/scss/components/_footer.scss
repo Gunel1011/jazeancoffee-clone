@@ -202,3 +202,27 @@
     opacity: 1;
   }
 }
+
+// media
+
+@media (max-width: 768px) {
+  .footer {
+    .container {
+      .row {
+        .topSide {
+          flex-direction: column;
+          gap: 18px;
+          .footerCalLogo {
+            flex-direction: column;
+            gap: 18px;
+          }
+          .footerCal {
+            .emailBlog {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

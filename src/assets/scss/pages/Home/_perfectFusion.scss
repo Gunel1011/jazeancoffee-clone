@@ -50,3 +50,35 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .perfectFusion {
+    position: relative;
+    .ourVideo {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      #vide {
+        width: 100%;
+        height: 70vh;
+        transform: scale(2.6);
+      }
+    }
+    .origin {
+      .originContent {
+        .originTitle {
+          font-size: 15px;
+        }
+        .originText {
+          font-size: 10.668px;
+        }
+        .leaf {
+          bottom: 50px;
+          width: 66px;
+          height: 66px;
+        }
+      }
+    }
+  }
+}

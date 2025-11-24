@@ -3,6 +3,9 @@ import logo from "../assets/img/svg/logo.svg";
 import pageList from "../constant/pageList";
 import { motion } from "framer-motion";
 import CartIMg from "../assets/img/svg/cartBag.svg";
+import { FiMenu } from "react-icons/fi";
+import { useEffect, useState } from "react";
+
 const Header = () => {
   const location = useLocation();
   const detailPages = [
@@ -16,7 +19,6 @@ const Header = () => {
   const isDetailPage = detailPages.some((path) =>
     location.pathname.startsWith(path)
   );
-
   const isStorePage = location.pathname.startsWith("/story");
   const listVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -32,6 +34,14 @@ const Header = () => {
     hidden: { opacity: 0, y: -15 },
     visible: { opacity: 1, y: -15 },
   };
+  const [menuToggle, setMenuToggle] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <header
       className="header"
@@ -41,15 +51,28 @@ const Header = () => {
     >
       <div className="container">
         <div className="row">
-          <Link to={"/"} className="logo" data-aos="fade-down">
-            <img src={logo} alt="logo" />
-          </Link>
-          <nav className="navBar">
+          <div className="menu">
+            <Link to={"/"} className="logo" data-aos="fade-down">
+              <img src={logo} alt="logo" />
+            </Link>
+            <FiMenu
+              className="menuIcon"
+              onClick={() => setMenuToggle(!menuToggle)}
+            />
+          </div>
+          <nav
+            className="navBar"
+            style={{
+              display: isMobile ? (menuToggle ? "flex" : "none") : "flex",
+            }}
+          >
             <motion.ul
               className="navList"
               variants={listVariants}
               initial="hidden"
-              animate="visible"
+              animate={
+                isMobile ? (menuToggle ? "visible" : "hidden") : "visible"
+              }
             >
               {pageList
                 .filter((page) => page.for_header)
@@ -59,7 +82,12 @@ const Header = () => {
                     className="listItem"
                     variants={itemVariants}
                   >
-                    <NavLink to={item.path}>{item.title}</NavLink>
+                    <NavLink
+                      onClick={() => isMobile && setMenuToggle(false)}
+                      to={item.path}
+                    >
+                      {item.title}
+                    </NavLink>
                   </motion.li>
                 ))}
             </motion.ul>

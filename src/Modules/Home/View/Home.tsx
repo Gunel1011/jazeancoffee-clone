@@ -21,7 +21,7 @@ const Home = () => {
       <PerfectFusion />
       <DiscoverYourPath />
       <Products />
-      <CustomSection />
+      <CustomSection /> 
     </>
   );
 };

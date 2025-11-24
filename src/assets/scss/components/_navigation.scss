@@ -16,3 +16,12 @@
     opacity: 0.5;
   }
 }
+@media (max-width: 768px) {
+  .navigation {
+    top: 140px;
+    .navigationIcon {
+      width: 43px;
+      height: 34px;
+    }
+  }
+}

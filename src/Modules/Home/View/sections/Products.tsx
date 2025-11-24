@@ -17,7 +17,7 @@ const Products = () => {
     try {
       const res = await HomeService.productList();
       setProducts(res);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
       showNotification("error", error?.response?.data);
     } finally {
@@ -41,7 +41,6 @@ const Products = () => {
               Some of the world's finest Arabica beans in the palm of your hand.
             </p>
           </div>
-
           <div className="product">
             <Swiper
               slidesPerView={4}

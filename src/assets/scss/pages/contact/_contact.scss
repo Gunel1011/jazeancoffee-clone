@@ -71,3 +71,47 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .contact {
+    .row {
+      flex-direction: column;
+      .leftSide {
+        height: 50vh;
+        width: 100%;
+        padding: 24px;
+        .leftSideTitle {
+          text-align: start;
+          font-size: 25.672px;
+          width: 200px;
+        }
+      }
+      .rightSide {
+        margin-top: 50px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        .contactFormSpanMessage {
+          color: $orange;
+          margin-top: 10px;
+          font-size: 13px;
+        }
+        .rightSideTitle {
+          font-size: 15px;
+          color: $lightBeige;
+        }
+        form {
+          .inputBlock {
+            display: flex;
+            flex-direction: column;
+
+            input {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

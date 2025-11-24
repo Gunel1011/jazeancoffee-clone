@@ -71,3 +71,34 @@
     opacity: 0.3;
   }
 }
+
+// media
+@media (max-width: 768px) {
+  .notFound {
+    padding-top: 150px;
+    .container {
+      .row {
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        .notFoundBlock {
+          .notFoundTitle {
+            font-size: 30px;
+            margin-bottom: 20px;
+          }
+          .notFoundText {
+            font-size: 15px;
+          }
+          .link {
+            margin-top: 30px;
+          }
+        }
+        .notFoundImg {
+          width: 100%;
+          height: 100%;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

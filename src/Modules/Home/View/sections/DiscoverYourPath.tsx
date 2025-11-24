@@ -19,6 +19,7 @@ const DiscoverYourPath = () => {
                 <span>NOW</span>
               </Link>
             </div>
+            {/* tree  */}
             <div className="discoverBlock">
               <Coffe />
             </div>

@@ -85,3 +85,75 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .harvest {
+    position: relative;
+    background-color: $bordo;
+    z-index: 2;
+    .container {
+      .imgCerry {
+        img {
+          position: absolute;
+          top: 50%;
+          right: 5%;
+          width: 61px;
+          height: 51px;
+          filter: blur(5px);
+        }
+        &.top {
+          img {
+            top: 20%;
+            left: 30%;
+          }
+        }
+        &.bottom {
+          img {
+            top: 70%;
+            left: 20%;
+            filter: blur(0);
+            width: 98px;
+            height: 83px;
+          }
+        }
+      }
+      .row {
+        margin-left: 0px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        .contentLefth {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .leaf {
+            color: $dimWhite;
+            margin-top: 12px;
+            width: 96px;
+            height: 96px;
+          }
+          .text {
+            width: 183px;
+            color: $dimWhite;
+            font-size: 21px;
+            text-align: center;
+          }
+        }
+        .contentRigth {
+          transform: translateY(-80px);
+          .text {
+            width: 240px;
+            font-size: 10.668px;
+            color: $dimWhite;
+            text-align: center;
+          }
+        }
+        .img {
+          display: none;
+        }
+      }
+    }
+  }
+}

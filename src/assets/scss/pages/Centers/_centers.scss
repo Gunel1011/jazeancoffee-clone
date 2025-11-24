@@ -36,3 +36,13 @@
     margin-top: 120px;
   }
 }
+
+@media (max-width: 768px) {
+  .centers {
+    .centersBottomSide {
+      background-color: $centersBg;
+      padding: 50px 20px;
+      margin-top: 120px;
+    }
+  }
+}
