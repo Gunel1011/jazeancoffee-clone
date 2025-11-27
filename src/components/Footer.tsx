@@ -24,17 +24,20 @@ const Footer = () => {
       .required()
       .matches(EMAIL_REGEX, "Please enter a valid email address"),
   });
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<IFooterEmail>({
+  const { register, handleSubmit, reset } = useForm<IFooterEmail>({
     resolver: yupResolver(contactChema),
   });
   const onSubmit = async (data: IFooterEmail) => {
     try {
-      await sendContactEmail(data);
+      const payload = {
+        name: "",
+        phone: "",
+        reason: "",
+        message: "",
+        email: data.email,
+      };
+
+      await sendContactEmail(payload);
       showNotification("success", "Message Send");
       reset();
     } catch (errors: any) {
