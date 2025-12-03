@@ -11,15 +11,15 @@ import { useEffect, useState } from "react";
 import type { IProduct } from "../../Home/Models/HomeModels";
 import { HomeService } from "../../Home/Service/HomeService";
 import ShopCard from "../../Home/View/ShopCard";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { useAppDispatch } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/slices/productSlice";
 import showNotification from "../../../utils/showNotification";
 
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const cart = useAppSelector((state) => state.productSlice.cart);
+  
   const dispatch = useAppDispatch();
-  console.log("Cart:", cart);
+
   const getStoreData = async () => {
     try {
       const res = await HomeService.productList();
@@ -86,7 +86,10 @@ const Store = () => {
                 <p className="price">{item.price} $</p>
                 <div
                   className="buttonAdd"
-                  onClick={() => dispatch(addToCart(item))}
+                  onClick={() => {
+                    dispatch(addToCart(item));
+                    showNotification("success", "Məhsul uğurla əlavə edildi..");
+                  }}
                 >
                   <span> Quick Add</span>
                   <Plus className="plus" />

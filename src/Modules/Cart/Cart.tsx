@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 import CloseBtn from "../../assets/img/svg/close.svg?react";
-import { useAppSelector } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useEffect } from "react";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeCart,
+} from "../../redux/slices/productSlice";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
-  console.log(cart);
-  useEffect(() => {
-    console.log("CART IN PAGE:", cart);
-  }, [cart]);
+  const price = useAppSelector((state) => state.productSlice.price);
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {}, [cart]);
 
   return (
     <section className="cart">
@@ -33,17 +38,35 @@ const Cart = () => {
               <ul className="cartList">
                 {cart.map((item) => (
                   <li className="cartProduct" key={item._id}>
-                    <CloseBtn className="closeBtn" />
+                    <CloseBtn
+                      className="closeBtn"
+                      onClick={() => dispatch(removeCart(item._id))}
+                    />
                     <div className="cartProductImg">
                       <img src={item.productImage} alt="skks" />
                     </div>
-                    <h2 className="cartProductName">{item.name}</h2>
+                    <Link
+                      to={`/car-details/${item._id}`}
+                      className="cartProductName"
+                    >
+                      {item.name}
+                    </Link>
                     <div className="cartProductCountBtn">
-                      <button className="cartProductBtns increase">+</button>
+                      <button
+                        className="cartProductBtns increase"
+                        onClick={() => dispatch(incrementQuantity(item._id))}
+                      >
+                        +
+                      </button>
                       <p className="cartProductCount">{item.quantity}</p>
-                      <button className="cartProductBtns decrease">-</button>
+                      <button
+                        className="cartProductBtns decrease"
+                        onClick={() => dispatch(decrementQuantity(item._id))}
+                      >
+                        -
+                      </button>
                     </div>
-                    <p className="cartProductPrice">{item.price}</p>
+                    <p className="cartProductPrice">{price} $</p>
                   </li>
                 ))}
               </ul>

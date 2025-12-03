@@ -6,10 +6,11 @@
   width: 100%;
   z-index: 10;
   background: transparent;
+  height: 80px;
   .container {
     .row {
       align-items: center;
-      padding: 24px 0;
+      height: 80px;
       .menu {
         .menuIcon {
           display: none;
@@ -25,6 +26,7 @@
         justify-content: center;
         .navList {
           display: flex;
+          align-items: center;
           gap: 32px;
           .listItem {
             a {
@@ -47,9 +49,16 @@
         }
       }
       .cart {
+        position: relative;
         img {
-          width: 19px;
-          height: 24px;
+          width: 25px;
+          height: 29px;
+        }
+        .count {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          color: $detailBg;
         }
       }
     }
@@ -63,7 +72,7 @@
     .container {
       .row {
         flex-direction: column;
-          align-items: end;
+        align-items: end;
         .menu {
           width: 100%;
           display: flex;

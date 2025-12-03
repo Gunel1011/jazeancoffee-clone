@@ -19,6 +19,7 @@ const App = () => {
       once: false,
     });
   }, []);
+  
   return (
     <Provider store={store}>
       <Header />

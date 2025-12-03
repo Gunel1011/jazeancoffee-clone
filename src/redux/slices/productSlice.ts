@@ -1,15 +1,36 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { IProduct } from "../../Modules/Home/Models/HomeModels";
+
+export interface ICartProduct extends IProduct {
+  quantity: number;
+}
 export interface IProductSlice {
-  cart: IProduct[];
+  cart: ICartProduct[];
+  cartCount: number;
+  price: number;
 }
 const initialState: IProductSlice = {
   cart: [],
+  cartCount: 0,
+  price: 0,
 };
 export const productSlice = createSlice({
   name: "productSlice",
   initialState,
   reducers: {
+    calculateCartCount: (state) => {
+      state.cartCount = state.cart.reduce(
+        (acc, curr) => acc + curr.quantity,
+        0
+      );
+    },
+    calculateTotalPrice: (state) => {
+      state.price = state.cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+    },
+
     addToCart: (state, action: PayloadAction<IProduct>) => {
       const existing = state.cart.find(
         (item) => item._id === action.payload._id
@@ -25,10 +46,50 @@ export const productSlice = createSlice({
       } else {
         state.cart = [...state.cart, { ...action.payload, quantity: 1 }];
       }
+      productSlice.caseReducers.calculateCartCount(state);
+      productSlice.caseReducers.calculateTotalPrice(state);
+    },
+    removeCart: (state, action: PayloadAction<string>) => {
+      state.cart = state.cart.filter((item) => item._id !== action.payload);
+      productSlice.caseReducers.calculateCartCount(state);
+      productSlice.caseReducers.calculateTotalPrice(state);
+    },
+    incrementQuantity: (state, action: PayloadAction<string>) => {
+      const existing = state.cart.find((item) => item._id === action.payload);
+      if (existing) {
+        existing.quantity++;
+        productSlice.caseReducers.calculateCartCount(state);
+      }
+      state.price = state.cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+      productSlice.caseReducers.calculateTotalPrice(state);
+    },
+    decrementQuantity: (state, action: PayloadAction<string>) => {
+      const existing = state.cart.find((item) => item._id === action.payload);
+      if (existing && existing.quantity > 1) {
+        existing.quantity--;
+        productSlice.caseReducers.calculateCartCount(state);
+      } else if (existing && existing.quantity === 1) {
+        state.cart = state.cart.filter((item) => item._id !== action.payload);
+        productSlice.caseReducers.calculateCartCount(state);
+      }
+      state.price = state.cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+      productSlice.caseReducers.calculateTotalPrice(state);
     },
   },
 });
 
-export const { addToCart } = productSlice.actions;
+export const {
+  addToCart,
+  removeCart,
+  calculateCartCount,
+  incrementQuantity,
+  decrementQuantity,
+} = productSlice.actions;
 
 export default productSlice.reducer;

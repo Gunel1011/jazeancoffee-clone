@@ -5,9 +5,13 @@ import { motion } from "framer-motion";
 import CartIMg from "../assets/img/svg/cartBag.svg";
 import { FiMenu } from "react-icons/fi";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "../redux/hooks";
 
 const Header = () => {
   const location = useLocation();
+  const cart = useAppSelector((state) => state.productSlice.cart);
+  console.log(cart);
+  const cartCount = useAppSelector((state) => state.productSlice.cartCount);
   const detailPages = [
     "/car-details",
     "/story",
@@ -32,7 +36,7 @@ const Header = () => {
   };
   const itemVariants = {
     hidden: { opacity: 0, y: -15 },
-    visible: { opacity: 1, y: -15 },
+    visible: { opacity: 1, y: 0 },
   };
   const [menuToggle, setMenuToggle] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -94,7 +98,8 @@ const Header = () => {
           </nav>
           {isStorePage && (
             <div className="cart">
-              <Link target="_blank" to={`/cart`}>
+              <Link to={`/cart`}>
+                <span className="count">{cartCount}</span>
                 <img src={CartIMg} alt="cartImg" />
               </Link>
             </div>

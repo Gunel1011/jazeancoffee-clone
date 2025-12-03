@@ -131,6 +131,7 @@
           &:hover {
             background-color: $sliderHover;
             .buttonAdd {
+              cursor: pointer;
               opacity: 1;
               visibility: visible;
               transform: translateY(0px);
@@ -188,7 +189,7 @@
     }
   }
 }
-// media 
+// media
 @media (max-width: 768px) {
   .store {
     background-color: $bg;
