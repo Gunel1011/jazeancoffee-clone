@@ -3,6 +3,7 @@
   position: relative;
   background-color: $bordo;
   z-index: 2;
+
   .container {
     .imgCerry {
       img {
@@ -34,6 +35,15 @@
       align-items: center;
       height: 100vh;
       justify-content: center;
+      .farmerLine {
+        position: absolute;
+        top: 55%;
+        left: 67%;
+        z-index: 10000;
+        svg {
+          height: 300px;
+        }
+      }
       .contentLefth {
         display: flex;
         flex-direction: column;

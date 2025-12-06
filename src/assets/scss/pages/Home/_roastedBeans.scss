@@ -20,6 +20,16 @@
     border-radius: 45%;
     height: 390px;
     width: 284px;
+    .beanLineSvg {
+      position: absolute;
+      top: -166px;
+      left: 45%;
+    }
+    .beanSvg {
+      position: absolute;
+      top: -15px;
+      left: -15%;
+    }
     .originContent {
       height: 390px;
       display: flex;

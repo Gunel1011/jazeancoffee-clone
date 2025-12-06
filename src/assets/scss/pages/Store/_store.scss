@@ -225,6 +225,14 @@
         .productAll {
           .product {
             padding: 20px;
+
+            background-color: $sliderHover;
+            .buttonAdd {
+              cursor: pointer;
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0px);
+            }
           }
         }
       }

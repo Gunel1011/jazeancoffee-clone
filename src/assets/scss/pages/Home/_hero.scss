@@ -14,10 +14,34 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        .heroText {
+          color: $lightBeige;
+          text-transform: uppercase;
+          font-size: 11px;
+          font-weight: 100;
+        }
+        .heroTitle {
+          color: $lightBeige;
+          text-transform: uppercase;
+          font-size: 70px;
+          margin: 30px 0;
+        }
         .coffe {
           color: $lightBeige;
           width: 56px;
           height: 75px;
+          margin-bottom: 20px;
+        }
+        .svgContain{
+          position: absolute;
+          top: 370px;
+          z-index: 1000;
+          height: 417px;
+          
+          svg{
+            height: 417px;
+          }
         }
       }
     }

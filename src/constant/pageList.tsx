@@ -22,7 +22,7 @@ const pageList: IPage[] = [
     path: "/",
     elemet: <Home />,
     is_visible: true,
-    for_header: false,
+    for_header: true,
   },
   {
     id: "cart",

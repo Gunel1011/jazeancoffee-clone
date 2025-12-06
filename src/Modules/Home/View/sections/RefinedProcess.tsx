@@ -22,6 +22,16 @@ const RefinedProcess = () => {
               <source src={bean} type="video/mp4" />
             </video>
           </div>
+
+          <div className="rafineSvg">
+            <svg width="649" height="800" viewBox="0 0 649 1081" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M648 1C643.667 96.6667 580.707 261.4 367.5 231C118.5 195.496 1 272 1 506.5C1 741 28.5001 798 161.5 853.5C298.153 910.524 286.999 1005.42 265 1032C253 1046.5 239.5 1059 243 1080" stroke="#341212" stroke-width="1.5" style={{
+                strokeDashoffset: 0,
+                strokeDasharray: "none",
+              }}></path>
+            </svg>
+          </div>
+
           {/* rightSide  */}
           <div className="coffeBag">
             <CoffeeBean className="bean" />

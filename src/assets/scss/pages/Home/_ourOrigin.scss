@@ -5,10 +5,24 @@
     width: 100%;
     position: relative;
     z-index: 1;
+    height: 100vh;
     #vide {
       width: 100%;
     }
   }
+  .ourLine {
+    position: absolute;
+    top: 120px;
+    left: 36%;
+    z-index: 10000;
+  }
+  .ourSvg {
+    position: absolute;
+    top: 542px;
+    left: 49%;
+    z-index: 10000;
+  }
+
   .origin {
     position: absolute;
     top: 50%;

@@ -12,12 +12,62 @@ const PerfectFusion = () => {
         </div>
         <div className="container">
           <div className="row">
+            <div className="fusionLineSvg">
+              <svg
+                width={26}
+                height={262}
+                viewBox="0 0 26 231"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M16.5002 0.5C19.5007 32.5 27.6475 52.1882 4.50111 126.5C-14.499 187.5 50.4995 179 12 230"
+                  stroke="white"
+                  strokeWidth={1.5}
+                  style={{
+                    strokeDashoffset: 0.000196,
+                    strokeDasharray: "194.026px, 47.26px",
+                  }}
+                />
+              </svg>
+            </div>
+            <div className="fusionSvg">
+              <svg
+                width={365}
+                height={423}
+                viewBox="0 0 465 623"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  className="half_line"
+                  d="M231.999 1C320.5 2 455.877 36.0774 462.999 280C470.999 554 374.5 619.5 231.999 622"
+                  stroke="white"
+                  strokeWidth={1.5}
+                  style={{
+                    strokeDashoffset: 0,
+                    strokeDasharray: "none",
+                  }}
+                />
+                <path
+                  className="half_line"
+                  d="M232.464 1C143.963 2 8.5857 36.0774 1.46387 280C-6.53613 554 89.9629 619.5 232.464 622"
+                  stroke="white"
+                  strokeWidth={1.5}
+                  style={{
+                    strokeDashoffset: 0,
+                    strokeDasharray: "none",
+                  }}
+                />
+              </svg>
+            </div>
             <div className="origin">
               <div
                 className="originContent"
                 data-aos="fade-up"
-                data-aos-offset="500"
-                data-aos-delay="600"
+                data-aos-offset="300"
+                data-aos-delay="400"
               >
                 <h2 className="originTitle">FLAWLESS FLAVORS</h2>
                 <p className="originText">
@@ -30,6 +80,7 @@ const PerfectFusion = () => {
                 <Square className="leaf" />
               </div>
             </div>
+
           </div>
         </div>
       </section>

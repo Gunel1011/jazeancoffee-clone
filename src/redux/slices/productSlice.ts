@@ -24,12 +24,7 @@ export const productSlice = createSlice({
         0
       );
     },
-    calculateTotalPrice: (state) => {
-      state.price = state.cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
-        0
-      );
-    },
+   
 
     addToCart: (state, action: PayloadAction<IProduct>) => {
       const existing = state.cart.find(
@@ -46,13 +41,17 @@ export const productSlice = createSlice({
       } else {
         state.cart = [...state.cart, { ...action.payload, quantity: 1 }];
       }
+      state.price = state.cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
       productSlice.caseReducers.calculateCartCount(state);
-      productSlice.caseReducers.calculateTotalPrice(state);
+      
     },
     removeCart: (state, action: PayloadAction<string>) => {
       state.cart = state.cart.filter((item) => item._id !== action.payload);
       productSlice.caseReducers.calculateCartCount(state);
-      productSlice.caseReducers.calculateTotalPrice(state);
+
     },
     incrementQuantity: (state, action: PayloadAction<string>) => {
       const existing = state.cart.find((item) => item._id === action.payload);
@@ -64,7 +63,7 @@ export const productSlice = createSlice({
         (sum, item) => sum + item.price * item.quantity,
         0
       );
-      productSlice.caseReducers.calculateTotalPrice(state);
+
     },
     decrementQuantity: (state, action: PayloadAction<string>) => {
       const existing = state.cart.find((item) => item._id === action.payload);
@@ -79,7 +78,6 @@ export const productSlice = createSlice({
         (sum, item) => sum + item.price * item.quantity,
         0
       );
-      productSlice.caseReducers.calculateTotalPrice(state);
     },
   },
 });

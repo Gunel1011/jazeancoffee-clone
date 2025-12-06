@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import CloseBtn from "../../assets/img/svg/close.svg?react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { useEffect } from "react";
 import {
   decrementQuantity,
   incrementQuantity,
@@ -11,9 +10,7 @@ import {
 const Cart = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
   const price = useAppSelector((state) => state.productSlice.price);
-
   const dispatch = useAppDispatch();
-  useEffect(() => {}, [cart]);
 
   return (
     <section className="cart">
@@ -76,7 +73,7 @@ const Cart = () => {
               <div className="cartProductTotalPrice">
                 <div className="cartProductTotalBlock">
                   <p className="cartProductTotalBlockTitle">Sub total</p>
-                  <span className="cartProductTotalBlockPrice">0 $</span>
+                  <span className="cartProductTotalBlockPrice">{price} $</span>
                 </div>
                 <hr />
                 <div className="cartProductTotalBlock">

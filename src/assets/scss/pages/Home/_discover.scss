@@ -1,6 +1,7 @@
 @use "../../variables" as *;
 .discover {
   background-color: $bg;
+  position: relative;
   .container {
     .row {
       height: 100vh;
@@ -10,7 +11,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        .discoverLineSvg {
+          position: absolute;
+          top: -18.5%;
+          left: 48%;
+          z-index: 1000;
+        }
         .discoverBlock {
           position: relative;
           width: 400px;
