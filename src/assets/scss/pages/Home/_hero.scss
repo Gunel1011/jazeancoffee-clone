@@ -33,14 +33,34 @@
           height: 75px;
           margin-bottom: 20px;
         }
-        .svgContain{
+        .svgContain {
           position: absolute;
           top: 370px;
           z-index: 1000;
           height: 417px;
-          
-          svg{
+
+          svg {
             height: 417px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    .container {
+      .row {
+        .center {
+          .svgContain {
+            position: absolute;
+            top: 326px;
+            z-index: 1000;
+            height: 417px;
+            svg {
+              height: 417px;
+            }
           }
         }
       }

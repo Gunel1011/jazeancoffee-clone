@@ -65,6 +65,18 @@
 
 @media (max-width: 768px) {
   .ourOrigin {
+    .ourLine {
+      position: absolute;
+      top: 0px;
+      left: 10%;
+      z-index: 10000;
+    }
+    .ourSvg {
+      position: absolute;
+      top: 542px;
+      left: 49%;
+      z-index: 10000;
+    }
     .ourVideo {
       height: 70vh;
       overflow: hidden;

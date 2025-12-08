@@ -10,8 +10,9 @@ import {
 const Cart = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
   const price = useAppSelector((state) => state.productSlice.price);
+  const totalPrice = useAppSelector((state) => state.productSlice.totalPrice);
   const dispatch = useAppDispatch();
-
+console.log(cart)
   return (
     <section className="cart">
       <div className="container">
@@ -63,7 +64,7 @@ const Cart = () => {
                         -
                       </button>
                     </div>
-                    <p className="cartProductPrice">{price} $</p>
+                    <p className="cartProductPrice">{item.quantity * item.price} $</p>
                   </li>
                 ))}
               </ul>
@@ -83,7 +84,7 @@ const Cart = () => {
                 <hr />
                 <div className="cartProductTotalBlock">
                   <p className="cartProductTotalBlockEnd">Total</p>
-                  <span className="cartProductTotalBlockEnd">0 $</span>
+                  <span className="cartProductTotalBlockEnd">{totalPrice} $</span>
                 </div>
               </div>
             </div>
