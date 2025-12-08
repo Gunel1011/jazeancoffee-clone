@@ -1,4 +1,3 @@
-import { useGSAP } from "@gsap/react";
 import CustomSection from "../../../components/CustomSection";
 import Navgitaion from "../../../components/Navgitaion";
 import CoffeeHarvest from "./sections/CoffeeHarvest";
