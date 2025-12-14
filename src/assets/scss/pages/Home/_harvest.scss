@@ -138,6 +138,10 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          background-color: $bordo;
+          border-radius: 45%;
+          padding: 30px;
+          margin-top: -100px;
           .leaf {
             color: $dimWhite;
             margin-top: 12px;
@@ -152,16 +156,20 @@
           }
         }
         .contentRigth {
-          transform: translateY(-80px);
-          .text {
-            width: 240px;
-            font-size: 10.668px;
-            color: $dimWhite;
-            text-align: center;
-          }
+          display: none;
         }
         .img {
           display: none;
+        }
+
+        .farmerLine {
+          top: 83%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          svg {
+            width: 200px;
+            height: 200px;
+          }
         }
       }
     }

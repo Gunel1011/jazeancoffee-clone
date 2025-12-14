@@ -189,6 +189,12 @@
           flex-direction: column-reverse;
           .coffeeContent {
             width: 100%;
+            .addBasket {
+              .buy {
+                width: 100%;
+                font-size: 16px;
+              }
+            }
           }
           .coffeeImg {
             width: 100%;

@@ -1,5 +1,7 @@
 @use "../variables" as *;
 .customInfo {
+  position: relative;
+  z-index: 99999;
   .container {
     width: 100%;
     .img {
@@ -63,8 +65,15 @@
       .img {
         .centersTop {
           .centersTopTitle {
-            width: 300px;
-            font-size: 35px;
+            width: 200px;
+            font-size: 30px;
+          }
+          .centersTopText {
+            color: $text;
+            font-size: 12px;
+            margin-top: 12px;
+            width: 200px;
+            text-align: center;
           }
         }
         .centersBottom {

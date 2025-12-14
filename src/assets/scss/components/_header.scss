@@ -73,6 +73,7 @@
       .row {
         flex-direction: column;
         justify-content: center;
+
         .menu {
           width: 100%;
           display: flex;
@@ -88,15 +89,17 @@
           height: 50px;
         }
         .navBar {
-          width: 108%;
+          width: 100%;
           background-color: $obsidianBrown;
           display: flex;
+          position: absolute; /* <-- Axından çıxarır */
+          top:50px; /* Header-in hündürlüyü (80px) qədər aşağı salır, beləcə menyu header-in altında başlayır */
+          left: 0;
           margin-top: 20px;
           padding: 30px 0;
           .navList {
             flex-direction: column;
             gap: 42px;
-
             .listItem {
               a {
                 font-size: 24px;

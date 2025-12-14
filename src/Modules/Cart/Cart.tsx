@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import CloseBtn from "../../assets/img/svg/close.svg?react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { FaPlusCircle } from "react-icons/fa";
+import { FaCircleMinus } from "react-icons/fa6";
+
+
 import {
   decrementQuantity,
   incrementQuantity,
@@ -12,7 +16,6 @@ const Cart = () => {
   const price = useAppSelector((state) => state.productSlice.price);
   const totalPrice = useAppSelector((state) => state.productSlice.totalPrice);
   const dispatch = useAppDispatch();
-console.log(cart)
   return (
     <section className="cart">
       <div className="container">
@@ -50,19 +53,9 @@ console.log(cart)
                       {item.name}
                     </Link>
                     <div className="cartProductCountBtn">
-                      <button
-                        className="cartProductBtns increase"
-                        onClick={() => dispatch(incrementQuantity(item._id))}
-                      >
-                        +
-                      </button>
+                      <FaPlusCircle className="cartbutton" onClick={() => dispatch(incrementQuantity(item._id))} />
                       <p className="cartProductCount">{item.quantity}</p>
-                      <button
-                        className="cartProductBtns decrease"
-                        onClick={() => dispatch(decrementQuantity(item._id))}
-                      >
-                        -
-                      </button>
+                      <FaCircleMinus className="cartbutton" onClick={() => dispatch(decrementQuantity(item._id))} />
                     </div>
                     <p className="cartProductPrice">{item.quantity * item.price} $</p>
                   </li>
@@ -79,12 +72,15 @@ console.log(cart)
                 <hr />
                 <div className="cartProductTotalBlock">
                   <p className="cartProductTotalBlockTitle">Vat</p>
-                  <span className="cartProductTotalBlockPrice">0 $</span>
+                  <span className="cartProductTotalBlockPrice">5%</span>
                 </div>
                 <hr />
                 <div className="cartProductTotalBlock">
                   <p className="cartProductTotalBlockEnd">Total</p>
                   <span className="cartProductTotalBlockEnd">{totalPrice} $</span>
+                </div>
+                <div className="cartProductBuyBlock">
+                  <Link to={"/cartBuy"} className="buyCart">Buy Cart</Link>
                 </div>
               </div>
             </div>

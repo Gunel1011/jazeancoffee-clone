@@ -6,6 +6,7 @@ import Contact from "../Modules/Contact/View/Contact";
 import Centers from "../Modules/Centers/View/Centers";
 import Cart from "../Modules/Cart/Cart";
 import NotFound from "../components/NotFound";
+import CartBuy from "../components/CartBuy";
 
 interface IPage {
   id: string;
@@ -32,14 +33,14 @@ const pageList: IPage[] = [
     is_visible: true,
     for_header: false,
   },
-  // {
-  //   id: "ourStory",
-  //   title: "Our Story",
-  //   path: "/our-story",
-  //   is_visible: true,
-  //   elemet: <Home />,
-  //   for_header: true,
-  // },
+  {
+    id: "cartBuy",
+    title: "Cart Buy",
+    path: "/cartBuy",
+    elemet: <CartBuy />,
+    is_visible: true,
+    for_header: false,
+  },
   {
     id: "car-details",
     title: "Car Details",
@@ -56,36 +57,20 @@ const pageList: IPage[] = [
     for_header: true,
     elemet: <Store />,
   },
-  // {
-  //   id: "businesses",
-  //   title: "Businesses",
-  //   path: "/businesses",
-  //   is_visible: true,
-  //   for_header: true,
-  //   elemet: <Home />,
-  // },
   {
     id: "centers",
     title: "Centers",
     path: "/centers",
-    is_visible: true,
     elemet: <Centers />,
+    is_visible: true,
     for_header: true,
   },
-  // {
-  //   id: "blogNews",
-  //   title: "Blog & News",
-  //   path: "/blog-news",
-  //   elemet: <Home />,
-  //   is_visible: true,
-  //   for_header: true,
-  // },
   {
     id: "contact",
     title: "Contact Us",
     path: "/contact",
-    is_visible: true,
     elemet: <Contact />,
+    is_visible: true,
     for_header: true,
   },
   {

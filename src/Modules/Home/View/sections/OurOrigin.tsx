@@ -38,7 +38,6 @@ const OurOrigin = () => {
         
           <div className="origin">
             <div className="originContent">
-
               <h2 className="originTitle" data-aos="fade-up">
                 A GREEN GOLD “COFFEA”
               </h2>

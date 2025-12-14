@@ -7,4 +7,4 @@ export interface IProduct {
   productImage: string;
   __v: number;
   quantity?: number;
-}
+} 

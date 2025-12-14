@@ -22,7 +22,9 @@ const CoffeeDeatils = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const dispacth = useAppDispatch();
   const cart = useAppSelector((state) => state.productSlice.cart);
-  console.log(cart);
+  const cartItem = cart.find((item) => item._id === product._id);
+  const quantity = cartItem ? cartItem.quantity : 0;
+  const [count, setCount] = useState(1);
   const getDetails = async () => {
     setLoading(true);
     try {
@@ -62,13 +64,18 @@ const CoffeeDeatils = () => {
                 <p className="price">{product?.price} $</p>
                 <div className="coffeeDetailButtons">
                   <div className="coffeeDetailButtonsCountBlcok">
-                    <button className="coffeeDetailBtn">-</button>
-                    <p className="count">0</p>
-                    <button className="coffeeDetailBtn">+</button>
+                    <button className="coffeeDetailBtn" onClick={() => setCount(prev => (prev > 1 ? prev - 1 : 1))}
+                      disabled={quantity === 0}>-</button>
+                    <p className="count">{count}</p>
+                    <button className="coffeeDetailBtn" onClick={() => setCount(prev => prev + 1)}>+</button>
                   </div>
                   <button
                     className="addToCart"
-                    onClick={() => dispacth(addToCart(product))}
+                    onClick={() => {
+                      const productWithQuantity = { ...product, quantity: count };
+                      dispacth(addToCart(productWithQuantity));
+                      showNotification("success", `Səbətə ${count} ədəd məhsul əlavə olundu :)`);
+                    }}
                   >
                     Add to cart
                   </button>

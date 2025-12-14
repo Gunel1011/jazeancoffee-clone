@@ -65,25 +65,49 @@
 
 @media (max-width: 768px) {
   .ourOrigin {
+    height: 100vh;
+    position: relative;
     .ourLine {
       position: absolute;
-      top: 0px;
-      left: 10%;
+      top: 140px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 10000;
+      svg{
+        width: 270px;
+        height: 300px;
+      }
     }
     .ourSvg {
-      position: absolute;
-      top: 542px;
-      left: 49%;
-      z-index: 10000;
+      position: relative;
+      top: 440px;
+      left: 40%;
+      display: none;
+      z-index: 3;
+      svg {
+        width: 200px;
+        height: 487px;
+      }
     }
     .ourVideo {
-      height: 70vh;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+
       #vide {
         width: 100%;
-        height: 70vh;
-        transform: scale(2.5);
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .origin {
+      height: 290px;
+      width: 204px;
+      .originContent {
+        height: 290px;
       }
     }
   }

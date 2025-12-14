@@ -1,6 +1,8 @@
 @use "../variables" as *;
 .footer {
   background: $obsidianBrown;
+  position: relative;
+  z-index: 999999;
   .container {
     .row {
       .topSide {

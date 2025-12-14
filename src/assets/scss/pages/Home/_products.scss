@@ -2,6 +2,8 @@
 .products {
   height: 100vh;
   background-color: $bg;
+  position: relative;
+  z-index: 99999;
   .container {
     width: 100%;
     .row {
@@ -93,22 +95,22 @@
     }
   }
 }
-
 @media (max-width: 768px) {
   .products {
-    height: 80vh;
-
+    height: 100vh;
     .container {
       width: 100%;
+      overflow: hidden;
       .row {
         flex-direction: column;
+        overflow: hidden;
         .productContent {
           margin-top: 100px;
           .productTitle {
-            font-size: 23px;
+            font-size: 16px;
           }
           .productText {
-            font-size: 10px;
+            font-size: 8px;
           }
         }
         .product {
@@ -123,22 +125,21 @@
           .mySwiper {
             position: relative;
             .swiper-slide-active {
-              transform: translateX(-10px);
               .swpierImg {
-                width: 190px;
-                height: 220px;
+                width: 150px;
+                height: 190px;
+
                 img {
-                  width: 190px;
-                  height: 220px;
+                  width: 150px;
+                  height: 190px;
                 }
               }
             }
-
             .swiper-button-prev {
-              left: 17%;
+              left: 10%;
             }
             .swiper-button-next {
-              right: 18%;
+              right: 11%;
             }
           }
         }

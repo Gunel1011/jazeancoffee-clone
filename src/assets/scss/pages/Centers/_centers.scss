@@ -39,6 +39,23 @@
 
 @media (max-width: 768px) {
   .centers {
+    .container {
+      .row {
+        .centersTopSide {
+          padding: 40px 23px;
+          .centersBalance {
+            width: 100%;
+          }
+          .centersTitle {
+            width: 100%;
+            font-size: 23px;
+            margin: 5px 0 10px 0;
+            color: $dimWhite;
+            text-align: center;
+          }
+        }
+      }
+    }
     .centersBottomSide {
       background-color: $centersBg;
       padding: 50px 20px;

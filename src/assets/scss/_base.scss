@@ -1,3 +1,4 @@
+@use "../scss/variables" as *;
 @font-face {
   font-family: loto;
   src: url(../fonts/loto.ttf);
@@ -45,4 +46,6 @@ img {
   border-radius: 3px;
   border: 1px solid #373636;
 }
-
+body {
+  background-color: $bg;
+}

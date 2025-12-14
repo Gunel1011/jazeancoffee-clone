@@ -10,9 +10,31 @@ export interface IProductSlice {
   price: number;
   totalPrice: number;
 }
+const addCartLocalStorage = (): ICartProduct[] => {
+  try {
+    const serializedCar = localStorage.getItem("cart");
+    return serializedCar ? JSON.parse(serializedCar) : [];
+  } catch (error) {
+    return [];
+  }
+};
+const loadCartCountFromLocalStorage = (): number => {
+  try {
+    const count = localStorage.getItem("cartCount");
+    return count ? parseInt(count) : 0;
+  } catch {
+    return 0;
+  }
+};
+const savedCartLocalStorage = (cart: ICartProduct[], cartCount: number) => {
+  try {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cartCount", cartCount.toString());
+  } catch {}
+};
 const initialState: IProductSlice = {
-  cart: [],
-  cartCount: 0,
+  cart: addCartLocalStorage(),
+  cartCount: loadCartCountFromLocalStorage(),
   price: 0,
   totalPrice: 0,
 };
@@ -27,33 +49,32 @@ export const productSlice = createSlice({
       );
     },
     addToCart: (state, action: PayloadAction<IProduct>) => {
+      const quantityToAdd = action.payload.quantity || 1;
       const existing = state.cart.find(
         (item) => item._id === action.payload._id
       );
       if (existing) {
-        state.cart = state.cart.filter((item) => {
-          if (item._id === existing._id && item.quantity) {
-            return { ...item, quantity: item.quantity++ };
-          } else {
-            return item;
-          }
-        });
+        existing.quantity += quantityToAdd;
       } else {
-        state.cart = [...state.cart, { ...action.payload, quantity: 1 }];
+        state.cart.push({ ...action.payload, quantity: quantityToAdd });
       }
-      state.totalPrice = state.cart.reduce(
+      state.price = state.cart.reduce(
         (acc, curr) => acc + curr.price * curr.quantity,
         0
       );
       productSlice.caseReducers.calculateCartCount(state);
+      savedCartLocalStorage(state.cart, state.cartCount);
+      state.totalPrice = state.price * 1.05;
     },
     removeCart: (state, action: PayloadAction<string>) => {
       state.cart = state.cart.filter((item) => item._id !== action.payload);
-      state.totalPrice = state.cart.reduce(
+      state.price = state.cart.reduce(
         (acc, curr) => acc + curr.price * curr.quantity,
         0
       );
       productSlice.caseReducers.calculateCartCount(state);
+      savedCartLocalStorage(state.cart, state.cartCount);
+      state.totalPrice = state.price * 1.05;
     },
     incrementQuantity: (state, action: PayloadAction<string>) => {
       const existing = state.cart.find((item) => item._id === action.payload);
@@ -66,11 +87,13 @@ export const productSlice = createSlice({
           }
         });
       }
-      state.totalPrice = state.cart.reduce(
+      state.price = state.cart.reduce(
         (acc, curr) => acc + curr.price * curr.quantity,
         0
       );
       productSlice.caseReducers.calculateCartCount(state);
+      savedCartLocalStorage(state.cart, state.cartCount);
+      state.totalPrice = state.price * 1.05;
     },
     decrementQuantity: (state, action: PayloadAction<string>) => {
       const existing = state.cart.find((item) => item._id === action.payload);
@@ -86,15 +109,16 @@ export const productSlice = createSlice({
           }
         });
       }
-      state.totalPrice = state.cart.reduce(
+      state.price = state.cart.reduce(
         (acc, curr) => acc + curr.price * curr.quantity,
         0
       );
+      state.totalPrice = state.price * 1.05;
       productSlice.caseReducers.calculateCartCount(state);
+      savedCartLocalStorage(state.cart, state.cartCount);
     },
   },
 });
-
 export const {
   addToCart,
   removeCart,
