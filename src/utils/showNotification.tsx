@@ -6,8 +6,8 @@ const showNotification = (type: TypeOptions = "default", text?: string) => {
       type === "success"
         ? "Successfully completed !"
         : type === "error"
-        ? "System error !"
-        : "Operation completed !";
+          ? "System error !"
+          : "Operation completed !";
   }
   // @ts-ignore
   toast[type](text, {
@@ -20,6 +20,11 @@ const showNotification = (type: TypeOptions = "default", text?: string) => {
     progress: undefined,
     theme: "colored",
     transition: Bounce,
+    style: {
+      background: "#5e4c47",
+      color: "#fff",
+      confirmButtonColor: "#ff652d",
+    }
   });
 };
 

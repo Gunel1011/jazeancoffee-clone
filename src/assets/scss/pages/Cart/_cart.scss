@@ -114,8 +114,10 @@
           .cartProductBuyBlock {
             margin-top: 20px;
             .buyCart {
+              display: inline-block;
               padding: 10px 0;
               width: 100%;
+              text-align: center;
               border: none;
               cursor: pointer;
               background-color: $orange;

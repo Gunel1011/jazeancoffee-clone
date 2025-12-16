@@ -1,25 +1,23 @@
 import Star from "../../../assets/img/svg/yellowStar.svg?react";
-import Search from "../../../assets/img/svg/search.svg?react";
-import storeImg1 from "../../../assets/img/store_img_1.jpg";
-import storeImg2 from "../../../assets/img/store_img_2.jpg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Plus from "../../../assets/img/svg/plus.svg?react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Navigation } from "swiper/modules";
-import { useEffect, useState } from "react";
-import type { IProduct } from "../../Home/Models/HomeModels";
-import { HomeService } from "../../Home/Service/HomeService";
-import ShopCard from "../../Home/View/ShopCard";
-import { useAppDispatch } from "../../../redux/hooks";
 import { addToCart } from "../../../redux/slices/productSlice";
 import showNotification from "../../../utils/showNotification";
+import Search from "../../../assets/img/svg/search.svg?react";
+import type { IProduct } from "../../Home/Models/HomeModels";
+import { HomeService } from "../../Home/Service/HomeService";
+import storeImg1 from "../../../assets/img/store_img_1.jpg";
+import storeImg2 from "../../../assets/img/store_img_2.jpg";
+import Plus from "../../../assets/img/svg/plus.svg?react";
+import { useAppDispatch } from "../../../redux/hooks";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ShopCard from "../../Home/View/ShopCard";
+import { useEffect, useState } from "react";
+import { Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+import "swiper/css";
 
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  
   const dispatch = useAppDispatch();
-
   const getStoreData = async () => {
     try {
       const res = await HomeService.productList();

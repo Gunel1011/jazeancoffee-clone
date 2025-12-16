@@ -10,43 +10,53 @@ export interface IProductSlice {
   price: number;
   totalPrice: number;
 }
-const addCartLocalStorage = (): ICartProduct[] => {
+const loadCartFromLocalStorage = (): ICartProduct[] => {
   try {
-    const serializedCar = localStorage.getItem("cart");
-    return serializedCar ? JSON.parse(serializedCar) : [];
+    const serializedCart = localStorage.getItem("cart");
+    return serializedCart ? JSON.parse(serializedCart) : [];
   } catch (error) {
     return [];
   }
 };
-const loadCartCountFromLocalStorage = (): number => {
+const loadNumberFromLocalStorage = (key: string): number => {
   try {
-    const count = localStorage.getItem("cartCount");
-    return count ? parseInt(count) : 0;
+    const item = localStorage.getItem(key);
+    return item ? parseFloat(item) : 0;
   } catch {
     return 0;
   }
 };
-const savedCartLocalStorage = (cart: ICartProduct[], cartCount: number) => {
+const saveToLocalStorage = (state: IProductSlice) => {
   try {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    localStorage.setItem("cartCount", cartCount.toString());
-  } catch {}
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+    localStorage.setItem("cartCount", state.cartCount.toString());
+    localStorage.setItem("price", state.price.toString());
+    localStorage.setItem("totalPrice", state.totalPrice.toString());
+  } catch (e) {
+    console.error("LocalStorage save error:", e);
+  }
+};
+const calculateAndSaveTotals = (state: IProductSlice) => {
+  state.price = state.cart.reduce(
+    (acc, curr) => acc + curr.price * curr.quantity,
+    0
+  );
+  state.totalPrice = state.price * 1.05;
+  state.cartCount = state.cart.reduce((acc, curr) => acc + curr.quantity, 0);
+  saveToLocalStorage(state);
 };
 const initialState: IProductSlice = {
-  cart: addCartLocalStorage(),
-  cartCount: loadCartCountFromLocalStorage(),
-  price: 0,
-  totalPrice: 0,
+  cart: loadCartFromLocalStorage(),
+  cartCount: loadNumberFromLocalStorage("cartCount"),
+  price: loadNumberFromLocalStorage("price"),
+  totalPrice: loadNumberFromLocalStorage("totalPrice"),
 };
 export const productSlice = createSlice({
   name: "productSlice",
   initialState,
   reducers: {
     calculateCartCount: (state) => {
-      state.cartCount = state.cart.reduce(
-        (acc, curr) => acc + curr.quantity,
-        0
-      );
+      calculateAndSaveTotals(state);
     },
     addToCart: (state, action: PayloadAction<IProduct>) => {
       const quantityToAdd = action.payload.quantity || 1;
@@ -58,64 +68,31 @@ export const productSlice = createSlice({
       } else {
         state.cart.push({ ...action.payload, quantity: quantityToAdd });
       }
-      state.price = state.cart.reduce(
-        (acc, curr) => acc + curr.price * curr.quantity,
-        0
-      );
-      productSlice.caseReducers.calculateCartCount(state);
-      savedCartLocalStorage(state.cart, state.cartCount);
-      state.totalPrice = state.price * 1.05;
+      calculateAndSaveTotals(state);
+    },
+    resetCart: (state) => {
+      state.cart = [];
+      state.totalPrice = 0;
+      state.cartCount = 0;
+      state.price = 0;
     },
     removeCart: (state, action: PayloadAction<string>) => {
       state.cart = state.cart.filter((item) => item._id !== action.payload);
-      state.price = state.cart.reduce(
-        (acc, curr) => acc + curr.price * curr.quantity,
-        0
-      );
-      productSlice.caseReducers.calculateCartCount(state);
-      savedCartLocalStorage(state.cart, state.cartCount);
-      state.totalPrice = state.price * 1.05;
+      calculateAndSaveTotals(state);
     },
     incrementQuantity: (state, action: PayloadAction<string>) => {
       const existing = state.cart.find((item) => item._id === action.payload);
       if (existing) {
-        state.cart = state.cart.filter((item) => {
-          if (item._id === existing._id) {
-            return { ...item, quantity: item.quantity++ };
-          } else {
-            return item;
-          }
-        });
+        existing.quantity++;
       }
-      state.price = state.cart.reduce(
-        (acc, curr) => acc + curr.price * curr.quantity,
-        0
-      );
-      productSlice.caseReducers.calculateCartCount(state);
-      savedCartLocalStorage(state.cart, state.cartCount);
-      state.totalPrice = state.price * 1.05;
+      calculateAndSaveTotals(state);
     },
     decrementQuantity: (state, action: PayloadAction<string>) => {
       const existing = state.cart.find((item) => item._id === action.payload);
-      if (existing) {
-        state.cart = state.cart.filter((item) => {
-          if (item._id === existing._id) {
-            return {
-              ...item,
-              quantity: item.quantity > 1 ? item.quantity-- : item.quantity,
-            };
-          } else {
-            return item;
-          }
-        });
+      if (existing && existing.quantity > 1) {
+        existing.quantity--;
       }
-      state.price = state.cart.reduce(
-        (acc, curr) => acc + curr.price * curr.quantity,
-        0
-      );
-      state.totalPrice = state.price * 1.05;
-      productSlice.caseReducers.calculateCartCount(state);
-      savedCartLocalStorage(state.cart, state.cartCount);
+      calculateAndSaveTotals(state);
     },
   },
 });
@@ -125,6 +102,7 @@ export const {
   calculateCartCount,
   incrementQuantity,
   decrementQuantity,
+  resetCart,
 } = productSlice.actions;
 
 export default productSlice.reducer;

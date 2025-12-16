@@ -63,27 +63,32 @@ const Cart = () => {
               </ul>
             </div>
             {/* right side  */}
-            <div className="cartProductsRightSide">
-              <div className="cartProductTotalPrice">
-                <div className="cartProductTotalBlock">
-                  <p className="cartProductTotalBlockTitle">Sub total</p>
-                  <span className="cartProductTotalBlockPrice">{price} $</span>
+            {
+              cart.length !== 0 && (
+
+                <div className="cartProductsRightSide">
+                  <div className="cartProductTotalPrice">
+                    <div className="cartProductTotalBlock">
+                      <p className="cartProductTotalBlockTitle">Sub total</p>
+                      <span className="cartProductTotalBlockPrice">{price} $</span>
+                    </div>
+                    <hr />
+                    <div className="cartProductTotalBlock">
+                      <p className="cartProductTotalBlockTitle">Vat</p>
+                      <span className="cartProductTotalBlockPrice">5%</span>
+                    </div>
+                    <hr />
+                    <div className="cartProductTotalBlock">
+                      <p className="cartProductTotalBlockEnd">Total</p>
+                      <span className="cartProductTotalBlockEnd">{totalPrice} $</span>
+                    </div>
+                    <div className="cartProductBuyBlock">
+                      <Link to={"/cartBuy"} className="buyCart">Buy Cart</Link>
+                    </div>
+                  </div>
                 </div>
-                <hr />
-                <div className="cartProductTotalBlock">
-                  <p className="cartProductTotalBlockTitle">Vat</p>
-                  <span className="cartProductTotalBlockPrice">5%</span>
-                </div>
-                <hr />
-                <div className="cartProductTotalBlock">
-                  <p className="cartProductTotalBlockEnd">Total</p>
-                  <span className="cartProductTotalBlockEnd">{totalPrice} $</span>
-                </div>
-                <div className="cartProductBuyBlock">
-                  <Link to={"/cartBuy"} className="buyCart">Buy Cart</Link>
-                </div>
-              </div>
-            </div>
+              )
+            }
           </div>
         </div>
       </div>

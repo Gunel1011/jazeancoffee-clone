@@ -6,6 +6,7 @@
     .row {
       justify-content: center;
       .cartBuyTop {
+        width: 80%;
         border: 1px solid $gray;
         padding: 20px;
         border-radius: 10px;
@@ -14,6 +15,7 @@
         .cartBuyTitle {
           color: $lightBeige;
         }
+        // left side
         .cartBuyLeftSide {
           width: 50%;
           display: flex;
@@ -67,8 +69,12 @@
             color: $lightBeige;
           }
         }
+        // right side
         .cartBuyRightSide {
           width: 50%;
+          display: flex;
+          flex-direction: column;
+
           .rigtSideTitle {
             color: $lightBeige;
             margin-bottom: 20px;
@@ -77,10 +83,36 @@
             border: 2px solid $gray;
             border-radius: 10px;
             width: 300px;
+            margin-bottom: 20px;
           }
-          .cartBuyForm{
+          .cartBuyForm {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            gap: 20px;
+            .cvcDateBlock {
+              display: flex;
+              gap: 30px;
+            }
+            input {
+              background-color: transparent;
+              border-top: none;
+              border-left: none;
+              border-right: none;
+              color: $lightBeige;
+              padding: 10px 5px;
+              &:focus {
+                outline: none;
+              }
+            }
+            .cartBuyMessage {
+              color: $orange;
+            }
+            .cartBuyBlock {
+              display: flex;
+              gap: 30px;
+            }
           }
         }
       }
