@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import type { ICartBuyForm } from "../Modules/Cart/Models/CartModelForm";
 import { yupResolver } from "@hookform/resolvers/yup";
 import showNotification from "../utils/showNotification";
-import switAlert from "../utils/switAlert";
+import SwitAlert from "../utils/SwitAlert";
 import { resetCart } from "../redux/slices/productSlice";
 const CartBuy = () => {
     const navigation = useNavigate()
@@ -30,7 +30,7 @@ const CartBuy = () => {
 
     const onSubmit = async () => {
         try {
-            switAlert()
+            SwitAlert()
             navigation("/story")
             reset()
             dispatch(resetCart());
