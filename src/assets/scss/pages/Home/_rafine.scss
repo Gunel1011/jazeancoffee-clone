@@ -151,7 +151,7 @@
 @media (max-width: 768px) {
   .rafined {
     background-color: $beige;
-    height: fit-content;
+    height: 80vh;
     .container {
       .row {
         flex-direction: column-reverse;
@@ -184,7 +184,8 @@
           }
         }
         .img {
-          margin-top: 50px;
+          margin-top: 20px;
+          margin-bottom: 30px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -212,73 +213,7 @@
           flex-direction: column;
           padding: 50px;
           .bean {
-            width: 30px;
-            height: 30px;
-            position: absolute;
             display: none;
-            &.bean:nth-child(1) {
-              display: none;
-            }
-            &.bean:nth-child(2) {
-              top: 60px;
-              right: 200px;
-            }
-            &.bean:nth-child(3) {
-              width: 15px;
-              height: 15px;
-              top: 100px;
-              right: 230px;
-              transform: rotate(90deg);
-            }
-            &.bean:nth-child(4) {
-              width: 18px;
-              height: 15px;
-              top: 90px;
-              right: 180px;
-              transform: rotate(70deg);
-            }
-            &.bean:nth-child(5) {
-              width: 10px;
-              height: 15px;
-              top: 40px;
-              right: 190px;
-            }
-            &.bean:nth-child(6) {
-              width: 10px;
-              height: 15px;
-              top: 60px;
-              right: 240px;
-            }
-            &.bean:nth-child(7) {
-              display: none;
-            }
-            &.bean:nth-child(8) {
-              width: 18px;
-              height: 18px;
-              top: 130px;
-              right: 230px;
-              transform: rotate(100deg);
-            }
-            &.bean:nth-child(9) {
-              width: 18px;
-              height: 18px;
-              top: 20px;
-              right: 220px;
-              transform: rotate(10deg);
-            }
-            &.bean:nth-child(10) {
-              width: 18px;
-              height: 18px;
-              top: 120px;
-              right: 200px;
-              transform: rotate(100deg);
-            }
-            &.bean:nth-child(11) {
-              width: 10px;
-              height: 15px;
-              top: 140px;
-              right: 180px;
-            }
           }
           .bag {
             width: 133px;
@@ -286,7 +221,7 @@
             align-items: center;
             position: relative;
             bottom: 0px;
-            top: -80px;
+            top: -140px;
           }
         }
       }

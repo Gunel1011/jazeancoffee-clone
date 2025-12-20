@@ -72,6 +72,7 @@
 @media (max-width: 768px) {
   .perfectFusion {
     position: relative;
+    height: 80vh;
     .ourVideo {
       width: 100%;
       height: 100vh;
@@ -91,11 +92,11 @@
         }
         .fusionLineSvg {
           position: absolute;
-          top: -110px;
+          top: -160px;
           left: 48%;
           z-index: 1000;
           svg {
-            height: 200px;
+            height: 296px;
           }
         }
         .origin {
@@ -117,7 +118,7 @@
         }
         .fusionSvg {
           position: absolute;
-          top: 110px;
+          top: 120px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 1000;

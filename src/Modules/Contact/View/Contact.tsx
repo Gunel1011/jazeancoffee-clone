@@ -16,18 +16,18 @@ const Contact = () => {
   const contactChema = object({
     name: string()
       .trim()
-      .required()
+      .required("Name is a required field")
       .matches(MIN_TWO_LATTER, "Name must contain at least 2 letters"),
     email: string()
       .trim()
-      .required()
+      .required("Email is a required field")
       .matches(EMAIL_REGEX, "Please enter a valid email address"),
     phone: string()
       .trim()
-      .required()
+      .required("Phone is a required field")
       .matches(PHONE_REGEX, "Please enter a valid phone number"),
-    reason: string().trim().required(),
-    message: string().trim().required(),
+    reason: string().trim().required("Reason is a required field"),
+    message: string().trim().required("Message field cannot be empty"),
   });
   const {
     register,

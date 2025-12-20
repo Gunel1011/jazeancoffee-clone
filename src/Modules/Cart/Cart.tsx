@@ -4,18 +4,32 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
 
-
 import {
   decrementQuantity,
   incrementQuantity,
   removeCart,
 } from "../../redux/slices/productSlice";
+import switAlert from "../../utils/SwitAlert";
 
 const Cart = () => {
   const cart = useAppSelector((state) => state.productSlice.cart);
   const price = useAppSelector((state) => state.productSlice.price);
   const totalPrice = useAppSelector((state) => state.productSlice.totalPrice);
   const dispatch = useAppDispatch();
+  const handleRemoveClick = (id: string) => {
+    switAlert({
+      title: "Are you sure?",
+      text: "This product will be removed from your cart!",
+      icon: "warning",
+      showCancel: true,
+      confirmText: "Yes, delete it!",
+      cancelText: "No, cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeCart(id));
+      }
+    });
+  };
   return (
     <section className="cart">
       <div className="container">
@@ -41,7 +55,7 @@ const Cart = () => {
                   <li className="cartProduct" key={item._id}>
                     <CloseBtn
                       className="closeBtn"
-                      onClick={() => dispatch(removeCart(item._id))}
+                      onClick={() => handleRemoveClick(item._id)}
                     />
                     <div className="cartProductImg">
                       <img src={item.productImage} alt="skks" />
@@ -53,42 +67,53 @@ const Cart = () => {
                       {item.name}
                     </Link>
                     <div className="cartProductCountBtn">
-                      <FaPlusCircle className="cartbutton" onClick={() => dispatch(incrementQuantity(item._id))} />
+                      <FaPlusCircle
+                        className="cartbutton"
+                        onClick={() => dispatch(incrementQuantity(item._id))}
+                      />
                       <p className="cartProductCount">{item.quantity}</p>
-                      <FaCircleMinus className="cartbutton" onClick={() => dispatch(decrementQuantity(item._id))} />
+                      <FaCircleMinus
+                        className="cartbutton"
+                        onClick={() => dispatch(decrementQuantity(item._id))}
+                      />
                     </div>
-                    <p className="cartProductPrice">{item.quantity * item.price} $</p>
+                    <p className="cartProductPrice">
+                      {item.quantity * item.price} $
+                    </p>
                   </li>
                 ))}
               </ul>
             </div>
             {/* right side  */}
-            {
-              cart.length !== 0 && (
-
-                <div className="cartProductsRightSide">
-                  <div className="cartProductTotalPrice">
-                    <div className="cartProductTotalBlock">
-                      <p className="cartProductTotalBlockTitle">Sub total</p>
-                      <span className="cartProductTotalBlockPrice">{price} $</span>
-                    </div>
-                    <hr />
-                    <div className="cartProductTotalBlock">
-                      <p className="cartProductTotalBlockTitle">Vat</p>
-                      <span className="cartProductTotalBlockPrice">5%</span>
-                    </div>
-                    <hr />
-                    <div className="cartProductTotalBlock">
-                      <p className="cartProductTotalBlockEnd">Total</p>
-                      <span className="cartProductTotalBlockEnd">{totalPrice} $</span>
-                    </div>
-                    <div className="cartProductBuyBlock">
-                      <Link to={"/cartBuy"} className="buyCart">Buy Cart</Link>
-                    </div>
+            {cart.length !== 0 && (
+              <div className="cartProductsRightSide">
+                <div className="cartProductTotalPrice">
+                  <div className="cartProductTotalBlock">
+                    <p className="cartProductTotalBlockTitle">Sub total</p>
+                    <span className="cartProductTotalBlockPrice">
+                      {price} $
+                    </span>
+                  </div>
+                  <hr />
+                  <div className="cartProductTotalBlock">
+                    <p className="cartProductTotalBlockTitle">Vat</p>
+                    <span className="cartProductTotalBlockPrice">5%</span>
+                  </div>
+                  <hr />
+                  <div className="cartProductTotalBlock">
+                    <p className="cartProductTotalBlockEnd">Total</p>
+                    <span className="cartProductTotalBlockEnd">
+                      {totalPrice} $
+                    </span>
+                  </div>
+                  <div className="cartProductBuyBlock">
+                    <Link to={"/cartBuy"} className="buyCart">
+                      Buy Cart
+                    </Link>
                   </div>
                 </div>
-              )
-            }
+              </div>
+            )}
           </div>
         </div>
       </div>

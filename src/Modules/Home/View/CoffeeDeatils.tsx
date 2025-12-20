@@ -80,7 +80,6 @@ const CoffeeDeatils = () => {
                     Add to cart
                   </button>
                 </div>
-                <button className="buy">Buy now</button>
               </div>
             </div>
             <div className="coffeeImg">

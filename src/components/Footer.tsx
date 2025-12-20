@@ -6,7 +6,6 @@ import { FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdPhoneAndroid } from "react-icons/md";
 import CostumButton from "./CostumButton";
-// hook
 import { object, string } from "yup";
 import { EMAIL_REGEX } from "../utils/helper";
 import { useForm } from "react-hook-form";
@@ -21,10 +20,15 @@ const Footer = () => {
   const contactChema = object({
     email: string()
       .trim()
-      .required()
+      .required("Email is a required field")
       .matches(EMAIL_REGEX, "Please enter a valid email address"),
   });
-  const { register, handleSubmit, reset } = useForm<IFooterEmail>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IFooterEmail>({
     resolver: yupResolver(contactChema),
   });
   const onSubmit = async (data: IFooterEmail) => {
@@ -129,6 +133,9 @@ const Footer = () => {
                     placeholder="Email Addres"
                     {...register("email")}
                   />
+                  {errors.email?.message && (
+                    <span className="footerErr">{errors.email.message}</span>
+                  )}
                   <CostumButton
                     text={["SUBSCRIBE", "TO", "OUR", "NEWSLETTER"]}
                   />

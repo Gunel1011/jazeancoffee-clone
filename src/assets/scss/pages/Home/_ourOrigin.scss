@@ -65,11 +65,11 @@
 
 @media (max-width: 768px) {
   .ourOrigin {
-    height: 100vh;
+    height: 70vh;
     position: relative;
     .ourLine {
       position: absolute;
-      top: 140px;
+      top: 113px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10000;

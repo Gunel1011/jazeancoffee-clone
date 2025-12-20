@@ -124,21 +124,21 @@
 // media
 @media (max-width: 768px) {
   .discover {
-    height: 100vh;
+    height: 105vh;
     .container {
       .row {
         gap: 50px;
         .discoverBlockTop {
           flex-direction: column;
-          margin-top: 250px;
+          margin-top: 370px;
           gap: 80px;
           .discoverLineSvg {
             position: absolute;
-            top: -21%;
+            top: -18%;
             left: 48%;
             z-index: 1000;
             svg {
-              height: 157px;
+              height: 324px;
             }
           }
           .discoverBlock {

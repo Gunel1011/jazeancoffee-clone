@@ -9,6 +9,7 @@
   color: $lightBeige;
   font-family: Arial, sans-serif;
   font-size: 13px;
+  cursor: pointer;
   &:hover span {
     animation: slideUp 0.9s ease-in-out;
   }

@@ -53,6 +53,10 @@ const Header = () => {
         backgroundColor: isDetailPage ? "#180D0A" : "",
       }}
     >
+      <div
+        className={`headerOvarley ${menuToggle ? "active" : ""}`}
+        onClick={() => setMenuToggle(false)}
+      ></div>
       <div className="container">
         <div className="row">
           <div className="menu">

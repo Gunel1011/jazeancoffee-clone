@@ -18,6 +18,7 @@ import "swiper/css";
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const dispatch = useAppDispatch();
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const getStoreData = async () => {
     try {
       const res = await HomeService.productList();
@@ -30,6 +31,9 @@ const Store = () => {
   useEffect(() => {
     getStoreData();
   }, []);
+  const filteredProducts = products.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <section className="store">
       <div className="container">
@@ -39,7 +43,12 @@ const Store = () => {
             <h2 className="title">EXPLORE OUR PRODUCTS</h2>
             <div className="search">
               <Search className="searcImg" />
-              <input type="text" placeholder="Search products" />
+              <input
+                type="text"
+                placeholder="Search products"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
             </div>
           </div>
         </div>
@@ -74,26 +83,35 @@ const Store = () => {
             our vision.
           </p>
           <div className="productAll">
-            {products.map((item) => (
-              <div className="product">
-                <div className="swpierImg">
-                  <ShopCard data={item} key={item._id} />
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((item) => (
+                <div className="product" key={item._id}>
+                  <div className="swpierImg">
+                    <ShopCard data={item} />
+                  </div>
+                  <h2 className="name">{item.name}</h2>
+                  <p className="text">{item.details}</p>
+                  <p className="price">{item.price} $</p>
+                  <div
+                    className="buttonAdd"
+                    onClick={() => {
+                      dispatch(addToCart(item));
+                      showNotification(
+                        "success",
+                        "Product added to cart successfully."
+                      );
+                    }}
+                  >
+                    <span> Quick Add</span>
+                    <Plus className="plus" />
+                  </div>
                 </div>
-                <h2 className="name">{item.name}</h2>
-                <p className="text">{item.details}</p>
-                <p className="price">{item.price} $</p>
-                <div
-                  className="buttonAdd"
-                  onClick={() => {
-                    dispatch(addToCart(item));
-                    showNotification("success", "Məhsul uğurla əlavə edildi..");
-                  }}
-                >
-                  <span> Quick Add</span>
-                  <Plus className="plus" />
-                </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p className="noResults">
+                No products found matching "{searchTerm}"
+              </p>
+            )}
           </div>
         </div>
       </div>
