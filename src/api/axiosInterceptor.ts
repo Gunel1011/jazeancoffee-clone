@@ -1,10 +1,10 @@
 import axios, { AxiosError } from "axios";
-import type { AxiosResponse } from "axios";
+import type { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 const $axios = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
 });
 $axios.interceptors.request.use(
-  async (config: any) => {
+  async (config: InternalAxiosRequestConfig) => {
     const savedToken = localStorage.getItem("token");
     if (savedToken) {
       config.headers["authorization"] = savedToken;

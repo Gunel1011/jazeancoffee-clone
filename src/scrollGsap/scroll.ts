@@ -4,10 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 const animatePath = (path: SVGPathElement, triggerSelector: string) => {
   const pathLine = path.getTotalLength();
-
   path.style.strokeDasharray = pathLine.toString();
   path.style.strokeDashoffset = pathLine.toString();
-
   gsap.to(path, {
     strokeDashoffset: 0,
     duration: 1,
@@ -20,7 +18,6 @@ const animatePath = (path: SVGPathElement, triggerSelector: string) => {
     },
   });
 };
-
 export const initScrollPath = () => {
   const svg = document.querySelector(".svgContain svg");
   if (svg) {
@@ -29,7 +26,6 @@ export const initScrollPath = () => {
       animatePath(path as SVGPathElement, ".svgContain");
     }
   }
-
   const svgOur = document.querySelector(".ourLine svg");
   if (svgOur) {
     const paths = svgOur.querySelectorAll("path.half_line");
@@ -51,7 +47,6 @@ export const initScrollPath = () => {
       animatePath(path as SVGPathElement, ".haverstSvg");
     });
   }
-
   const farmerLine = document.querySelector(".farmerLine svg");
   if (farmerLine) {
     const paths = farmerLine.querySelectorAll("path");
