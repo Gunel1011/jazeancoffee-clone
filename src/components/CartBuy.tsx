@@ -61,6 +61,8 @@ const CartBuy = () => {
     register,
     handleSubmit,
     reset,
+    setValue,
+    trigger,
     formState: { errors },
   } = useForm<ICartBuyForm>({
     resolver: yupResolver(cartBuyChema),
@@ -146,9 +148,12 @@ const CartBuy = () => {
                   className="phoneInput"
                   defaultCountry="az"
                   value={phone}
-                  {...register("phone")}
                   placeholder="Phone"
-                  onChange={(phone) => setPhone(phone)}
+                  onChange={(value) => {
+                    setPhone(value);
+                    setValue("phone", value);
+                    trigger("phone");
+                  }}
                 />
                 {errors.phone?.message && (
                   <span className="cartBuyMessage">{errors.phone.message}</span>
@@ -157,7 +162,6 @@ const CartBuy = () => {
                   <div className="cvcDateBlockInput">
                     <IMaskInput
                       mask="MM/YY"
-                      {...register("date")}
                       blocks={{
                         MM: {
                           mask: IMask.MaskedRange,
@@ -175,7 +179,10 @@ const CartBuy = () => {
                       unmask={false}
                       placeholder="MM/YY"
                       className="cardInput"
-                      onAccept={(value) => console.log(value)}
+                      onAccept={(value) => {
+                        setValue("date", value);
+                        trigger("date");
+                      }}
                     />
                     {errors.date?.message && (
                       <span className="cartBuyMessage">
