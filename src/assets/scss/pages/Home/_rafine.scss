@@ -54,7 +54,13 @@
       }
       .rafineSvg {
         position: absolute;
-        left: 25.5%;
+        left: 50%;
+        transform: translateX(-40%);
+        height: 100vh;
+        top: 0;
+        svg {
+          height: 100%;
+        }
       }
       .coffeBag {
         display: flex;

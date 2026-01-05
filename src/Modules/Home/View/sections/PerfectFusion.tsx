@@ -80,7 +80,6 @@ const PerfectFusion = () => {
                 <Square className="leaf" />
               </div>
             </div>
-
           </div>
         </div>
       </section>

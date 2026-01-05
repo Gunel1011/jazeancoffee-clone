@@ -16,7 +16,6 @@ const OurOrigin = () => {
       </div>
       <div className="container">
         <div className="row">
-
           <div className="ourLine">
             <svg width="350" height="423" viewBox="0 0 465 623" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path className="half_line" d="M231.999 1C320.5 2 455.877 36.0774 462.999 280C470.999 554 374.5 619.5 231.999 622" stroke="#FF652D" strokeWidth="1.5" style={{ strokeDashoffset: 0, strokeDasharray: 'none' }}></path>

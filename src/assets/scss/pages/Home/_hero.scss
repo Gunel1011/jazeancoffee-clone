@@ -31,16 +31,16 @@
           color: $lightBeige;
           width: 56px;
           height: 75px;
-          margin-bottom: 20px;
+          margin-bottom: 90px;
         }
         .svgContain {
           position: absolute;
-          top: 370px;
+          top: 50%;
+          bottom: calc(50% + 195px);
           z-index: 1000;
-          height: 417px;
-
+          height: 68vh;
           svg {
-            height: 417px;
+            height: 100%;
           }
         }
       }
@@ -55,11 +55,12 @@
         .center {
           .svgContain {
             position: absolute;
-            top: 415px;
+            top: 50%;
+            bottom: calc(50% + 195px);
             z-index: 1000;
-            height: 417px;
+            height: 65vh;
             svg {
-              height: 455px;
+              height: 100%;
             }
           }
         }
