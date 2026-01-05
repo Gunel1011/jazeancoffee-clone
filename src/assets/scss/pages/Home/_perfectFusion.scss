@@ -15,9 +15,13 @@
     .row {
       .fusionLineSvg {
         position: absolute;
-        top: -21%;
+        top: -24%;
         left: 48%;
+        height: calc(100vh - 415px);
         z-index: 1000;
+        svg {
+          height: 100%;
+        }
       }
       .fusionSvg {
         position: absolute;

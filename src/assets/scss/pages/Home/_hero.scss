@@ -36,9 +36,10 @@
         .svgContain {
           position: absolute;
           top: 50%;
-          bottom: calc(50% + 195px);
+          transform: translateY(-0%); 
+          height: calc(100vh - 215px);
           z-index: 1000;
-          height: 68vh;
+
           svg {
             height: 100%;
           }

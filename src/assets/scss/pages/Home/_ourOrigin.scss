@@ -26,12 +26,13 @@
   }
   .ourSvg {
     position: absolute;
-    top: 81%;
     left: 50%;
+    transform: translate(-10%, -28%);
+    height: calc(100vh - 10px);
     z-index: 1000;
-    height: 85vh;
     svg {
       height: 100%;
+      width: auto;
     }
   }
   .origin {
