@@ -24,7 +24,6 @@ const Products = () => {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     getData();
   }, []);
@@ -50,15 +49,13 @@ const Products = () => {
               modules={[Navigation]}
               className="mySwiper"
             >
-              {products
-                .filter((item) => item.for_slide)
-                .map((item) => (
-                  <SwiperSlide key={item._id}>
-                    <div className="swpierImg">
-                      <ShopCard data={item} key={item._id} />
-                    </div>
-                  </SwiperSlide>
-                ))}
+              {products.map((item) => (
+                <SwiperSlide key={item._id}>
+                  <div className="swpierImg">
+                    <ShopCard data={item} key={item._id} />
+                  </div>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
