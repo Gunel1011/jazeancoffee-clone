@@ -4,7 +4,7 @@ export class HomeService {
     return await HomeProdvider.getProducts().then((res) => {
       return res.data.map((item) => ({
         ...item,
-        productImage: `${import.meta.env.VITE_IMAGE_URL}${item.productImage}`,
+        productImage: `${item.productImage}`,
       }));
     });
   }
@@ -12,9 +12,7 @@ export class HomeService {
     return await HomeProdvider.getProductDetails(id).then((res) => {
       return {
         ...res.data,
-        productImage: `${import.meta.env.VITE_IMAGE_URL}${
-          res.data.productImage
-        }`,
+        productImage: `${res.data.productImage}`,
       };
     });
   }
