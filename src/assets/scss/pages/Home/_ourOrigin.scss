@@ -3,26 +3,38 @@
   position: relative;
   .ourVideo {
     width: 100%;
+    height: 100vh;
     position: relative;
     z-index: 1;
-    height: 100vh;
+    overflow: hidden;
     #vide {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
   .ourLine {
     position: absolute;
-    top: 120px;
-    left: 36%;
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 10000;
   }
   .ourSvg {
     position: absolute;
-    top: 542px;
-    left: 49%;
-    z-index: 10000;
+    left: 50%;
+    transform: translate(-7%, -23%);
+    height: calc(100vh - 30px);
+    z-index: 1000;
+    svg {
+      height: 100%;
+      width: auto;
+    }
   }
-
   .origin {
     position: absolute;
     top: 50%;
@@ -73,7 +85,7 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 10000;
-      svg{
+      svg {
         width: 270px;
         height: 300px;
       }

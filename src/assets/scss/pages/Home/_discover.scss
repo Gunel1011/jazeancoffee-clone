@@ -13,9 +13,13 @@
         align-items: center;
         .discoverLineSvg {
           position: absolute;
-          top: -18.5%;
+          top: -22%;
           left: 48%;
+          height: calc(100vh - 200px);
           z-index: 1000;
+          svg {
+            height: 100%;
+          }
         }
         .discoverBlock {
           position: relative;

@@ -14,18 +14,23 @@ import { useEffect, useState } from "react";
 import { Navigation } from "swiper/modules";
 import "swiper/css/pagination";
 import "swiper/css";
+import Loading from "../../../components/Loading";
 
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const getStoreData = async () => {
+    setLoading(true);
     try {
       const res = await HomeService.productList();
       setProducts(res);
     } catch (error: any) {
       console.log(error);
       showNotification("error", error?.response?.data);
+    } finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -34,6 +39,9 @@ const Store = () => {
   const filteredProducts = products.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <section className="store">
       <div className="container">

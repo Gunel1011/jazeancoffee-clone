@@ -22,8 +22,13 @@
     width: 284px;
     .beanLineSvg {
       position: absolute;
-      top: -166px;
-      left: 45%;
+      top: -25%;
+      left: 50%;
+      transform: translate(-20%, -55%);
+      height: calc(100vh - 555px);
+      svg {
+        height: 100%;
+      }
     }
     .beanSvg {
       position: absolute;
