@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import type { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 const $axios = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: "/api",
 });
 $axios.interceptors.request.use(
   async (config: InternalAxiosRequestConfig) => {
